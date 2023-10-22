@@ -21,19 +21,17 @@ import dronekit
 from aerpawlib.vehicle import Vehicle
 import time
 import zmq
-from struct import unpack
+# from struct import unpack
 
 #NOTES and TODOs
 # potentially use a deque for the data structures to limit memory usage
 # add a form of vehicle identification to the data structures for multiple vehicle logging support
 # form a stationary filter and feedback to the vehicle to if the data collected has settled to a stationary point
 
+
 # CONSTANTS
-POLL_RATE = 25 # Hz (~29 Hz output from the radio), keep worker from taking too much CPU
-# FIFO_POWER_PATH = "/root/Power"
-# FIFO_QUALITY_PATH = "/root/Quality"
-# default_fifos = (FIFO_POWER_PATH, FIFO_QUALITY_PATH)
-DEBUG = True
+POLL_RATE = 29 # Hz (~29 Hz output from the radio), keep worker from taking too much CPU
+DEBUG = False
 
 
 class DataPoint(NamedTuple):
@@ -65,24 +63,36 @@ class DataPoint(NamedTuple):
 
 class DataManager:
     '''Class for managing the data from the GPS and radio'''
-    ############################################################################# DATA WORKER for FIFO
+    ############################################################################# DATA WORKER
     def _data_worker(self, data_queue:Queue, V:Vehicle) -> None:
         '''Worker function for polling the data from the vehicle and radio'''
+        # initialize the zmq context
+        context = zmq.Context()
+        # initialize the zmq socket
+        socket = context.socket(zmq.SUB)
+        # connect to the radio data zmq publisher
+        socket.connect("tcp://127.0.0.1:64000") # loopback, port 64000
+        # subscribe to all topics
+        socket.setsockopt(zmq.SUBSCRIBE, b"") # subscribe to all topics
+
+        # report that the worker has started
+        print("Data Manager worker started")
+
         while True: # SOMETHING IN HERE IS TOO SLOW ... prbly the fifo read
             read1 = datetime.datetime.now()
-            #first poll the radio fifos
-            f = open("/root/Power", "rb")
-            power = unpack("<f", f.read(4))
-            power = power[0] # unpack returns a tuple, we only want the first element
-            # clear the fifo
-            f.close()
+
+            # blocking recv waits for a message
+            msg = socket.recv() 
+
+            # unpack the data into a numpy array
+            data = np.frombuffer(msg, dtype=np.float32, count=-1) # power is a float32, count=-1 means read all
+            # only take the first element of the array, in case there is more than one
+            power = data[0]
+            
+            # static temp value for quality
+            quality = 0.0
 
             read2 = datetime.datetime.now()
-            g = open("/root/Quality", "rb")
-            quality = unpack("<f", g.read(4))
-            quality = quality[0] # unpack returns a tuple, we only want the first element
-            # clear the fifo
-            g.close()
 
             read3 = datetime.datetime.now()
             timestamp = datetime.datetime.now()
@@ -180,6 +190,10 @@ class DataManager:
         # finally: # make sure to close the process
         #     self.data_process.terminate()
         #     print("Data Manager subprocess terminated potentially prematurely!")
+
+    def get_queue_size(self) -> int:
+        '''Get the size of the queue'''
+        return self.queue.qsize()
     
     def filter_data_avg(self) -> DataPoint:
         '''Filter the data into a single data point
@@ -196,6 +210,28 @@ class DataManager:
         self.data_filtered = []
 
         return avg_power, avg_quality, avg_location
+    
+    def get_human_readable(self, index:int) -> str:
+        '''Get the data[index] in a human readable format'''
+        # check if the call is valid
+        if len(self.data) == 0:
+            return "No data collected yet"
+        
+        data = self.data[index] 
+
+        for field in data._fields:
+            if field == "position":
+                print(f"{field}: {getattr(data, field).toJson()}") # print human readable position
+            else: 
+                print(f"{field}: {getattr(data, field)}")
+    # method to create a file with all the data
+    def write_data_to_file(self,filename:str):
+        '''Write the data to a file'''
+        with open(filename, "w") as f:
+            for d in self.data:
+                f.write(self.get_human_readable(d))
+        print(f"Data written to {filename}")
+        print(f"Data length: {len(self.data)}")
 
 
             

@@ -8,6 +8,8 @@
 # Title: Not titled yet
 # GNU Radio version: 3.8.2.0
 
+print("===Starting CSRX_noGUI.py===")
+
 from gnuradio import blocks
 from gnuradio import digital
 from gnuradio import filter
@@ -20,9 +22,11 @@ from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
 from gnuradio import uhd
 import time
+from gnuradio import zeromq
 import epy_block_0
 import math
 
+print("===IMPORTS LOADED===")
 
 class CSRX_noGUI(gr.top_block):
 
@@ -47,6 +51,7 @@ class CSRX_noGUI(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
+        self.zeromq_pub_sink_0 = zeromq.pub_sink(gr.sizeof_float, 1, 'tcp://127.0.0.1:64000', 100, False, -1)
         self.uhd_usrp_source_0 = uhd.usrp_source(
             ",".join(("", args)),
             uhd.stream_args(
@@ -100,6 +105,7 @@ class CSRX_noGUI(gr.top_block):
         # Connections
         ##################################################
         self.connect((self.blocks_add_const_vxx_0, 0), (self.blocks_file_sink_0, 0))
+        self.connect((self.blocks_add_const_vxx_0, 0), (self.zeromq_pub_sink_0, 0))
         self.connect((self.blocks_complex_to_mag_0_0, 0), (self.blocks_nlog10_ff_0_0, 0))
         self.connect((self.blocks_complex_to_mag_0_0_0, 0), (self.blocks_nlog10_ff_0_0_0, 0))
         self.connect((self.blocks_keep_m_in_n_0, 0), (self.blocks_moving_average_xx_1, 0))

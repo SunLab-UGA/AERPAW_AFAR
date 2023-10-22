@@ -36,6 +36,10 @@ INIT = TrialInit()
 STEP_SIZE = INIT.STEP_SIZE  # when going forward - how far, in meters
 FOCUS_HEADING = INIT.NORTHWEST
 SEARCH_ALTITUDE = INIT.SEARCH_ALTITUDE
+MEASUREMENT_SPAN = INIT.MEASUREMENT_SPAN
+
+# DEBUGGING
+DEBUG_DATA_MANAGER = False
 
 
 # Initialize the GP 
@@ -119,20 +123,33 @@ class RoverSearch(StateMachine):
 
     ########################################################################################### BACKGROUND
     @background
-    async def background(self, vehicle: Vehicle):
+    async def data_manager(self, vehicle: Vehicle):
         # use the data manager to get the latest data
-        num_samples_collected = self.DM.run(mark_measurement=self.valid_measurement)
+        num_samples_collected = self.DM.run(mark_measurement=self.valid_measurement) # collect data and mark valid if at a measurement waypoint
 
-        print(f"background: Collected {num_samples_collected} samples")
-        # print the interval between the last two data points
-        print(f"background: Interval between last two data points is {self.DM.interval} seconds")
+        if DEBUG_DATA_MANAGER:
+            print(f"background: Collected {num_samples_collected} samples")
+            # print the interval between the last two data points
+            print(f"background: Interval between last two data points is {self.DM.interval} seconds")
+            # print the last data point
+            print(f"background: Last data point: {self.DM.get_human_readable(-1)}")
 
-        if self.mission_started:
         # new data should be processed if within a valid measurement time
         # new data is used to update the GP
         # the GP is used to append a new waypoint to the waypoint list
         # the waypoint list is used to update the vehicle's mission
 
+
+        # dynamically change the sleep time based upon the current queue size
+        # this is to ensure that the data manager is not overloaded
+        q = self.DM.get_queue_size()
+        if q >= 10: # if the queue is large, sleep for a shorter time
+            await asyncio.sleep(0.01)
+        else: # if the queue is small, sleep for a longer time
+            await asyncio.sleep(0.1)
+    @background
+    async def mission_timer(self, vehicle: Vehicle):
+        if self.mission_started:
             # check if a search time has eleapsed
             if datetime.datetime.now() > self.min_3_time:
                 if not self.min_3_reported:
@@ -144,9 +161,10 @@ class RoverSearch(StateMachine):
                     print("10 minutes have elapsed")
                     print("=====HERE IS THE REPORTED POSITION=====")
                     self.min_10_reported = True
+        
+        await asyncio.sleep(1) # check at least once per second
 
-        await asyncio.sleep(0.1) # was 1
-
+        
     ########################################################################################### START
     @state(name="start", first=True)
     async def start(self, vehicle: Drone):
@@ -162,12 +180,13 @@ class RoverSearch(StateMachine):
         print(f"Home location is {vehicle.position.toJson()}")
         
         # Takeoff
+        print(f"marked waiting for arm command at: {self.start_time.strftime('%H:%M:%S%f')}")
         await vehicle.takeoff(SEARCH_ALTITUDE)
         print("Taking off...")
         await vehicle.await_ready_to_move()
-        print(f"marked start time as {self.start_time.strftime('%H:%M:%S%f')}")
+        print(f"marked mission start time as {self.start_time.strftime('%H:%M:%S%f')}")
         await vehicle.await_ready_to_move()
-        print(f"Done taking off @ {datetime.datetime.now().strftime('%H:%M:%S%f')}")
+        print(f"marked takeoff complete: @ {datetime.datetime.now().strftime('%H:%M:%S%f')}")
         print(f"Takeoff took {datetime.datetime.now() - self.start_time} seconds")
 
         # Turn to face the search direction
@@ -271,11 +290,15 @@ class RoverSearch(StateMachine):
             next_waypoint = GP.process_optimizer()
             # convert the next waypoint to a Coordinate
             next_waypoint = Coordinate(next_waypoint[0], next_waypoint[1], SEARCH_ALTITUDE)
+            print(f"Next waypoint from GP: {next_waypoint.toJson()}")
+            # limit the waypoint to a maximum distance from present location
+            next_waypoint_limited = vehicle.position.limit_distance(next_waypoint, MEASUREMENT_SPAN)
+            print(f"Next waypoint from GP (limited): {next_waypoint_limited.toJson()}")
             # add the next waypoint to the list of waypoints
-            INIT.waypoints.append(next_waypoint)
-            print(f"Next waypoint from GP: {next_waypoint.toJson()} added to waypoint list")
+            INIT.waypoints.append(next_waypoint_limited)
         # check_end and return the appropriate state
         return "go_forward" if not self.check_end() else "end"
+    
     
     
     ########################################################################################### END

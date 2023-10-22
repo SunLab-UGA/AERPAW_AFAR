@@ -17,7 +17,8 @@ from aerpawlib.util import inside, readGeofence
 #TODO: add the creation of interactive figures for tracking the GP progress over time
 #TODO: add the thresholding of the GP to assess the probability of the rover being with a certain area
 #TODO: add Bayesian optimization to the GP to guide the search over time
-    #TODO: the bayesian optimization needs to select from only UAV linespace points
+#TODO: the bayesian optimization needs to select from only UAV linespace points
+#TODO: add a pickling function to save progress and data to a file
 
 class ProcessFunction:
 
@@ -99,9 +100,13 @@ class ProcessFunction:
         self.Z_history = []
         self.Z_mse_history = []
 
-        # kernel
-        self.kernel = (C(0.01**2, (1e-4, 1e7)) * RBF(2.2, (1e-2, 1e2)) +
-                    WhiteKernel(noise_level=1e-10, noise_level_bounds=(1e-10, 1e+1)))
+        # kernel (default)
+        # self.kernel = (C(0.01**2, (1e-4, 1e7)) * RBF(2.2, (1e-2, 1e2)) +
+        #             WhiteKernel(noise_level=1e-10, noise_level_bounds=(1e-10, 1e+1)))
+        
+        # kernel (optimized)
+        self.kernel = (C(9.18**2) * RBF(1.43) +
+                    WhiteKernel(noise_level=1.12e-1))
         
         self.GP = GaussianProcessRegressor(kernel=self.kernel, optimizer='fmin_l_bfgs_b',
                                            n_restarts_optimizer=10, copy_X_train=True,
