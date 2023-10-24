@@ -266,18 +266,10 @@ class Coordinate:
             # place a debug print here
             print(f"my position is: {self}")
             print(f"Distance between {self} and {other} is {self.distance(other)} meters")
-            #return self + (other - self).norm() * max_distance
-            # using bearing and distance create a new coordinate
-            # bearing = self.bearing(other)
-            # print(f"Bearing is {bearing}")
-            # new_lat = self.lat + (max_distance * cos(radians(bearing)))
-            # new_lon = self.lon + (max_distance * sin(radians(bearing)))
-            # other_corrd = Coordinate(new_lat, new_lon, self.alt)
-            # print the distance between the new coordinate and the self coordinate
 
-            vec = self - other # get the vector between the two coordinates
+            vec = other - self  # get the vector between the two coordinates
             vec = vec.norm() # normalize the vector
-            vec = VectorNED(vec.east * max_distance, vec.north * max_distance, 0) # ignore down
+            vec = VectorNED(vec.north * max_distance, vec.east * max_distance, 0) # ignore down
             print(f"Vector is {str(vec)}")
             other_corrd = self + vec
             print(f"checked Distance is {self.distance(other_corrd)}")

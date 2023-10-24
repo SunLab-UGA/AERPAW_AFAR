@@ -1,7 +1,5 @@
 # Paul Kudyba, OCT-2023
 
-# TODO: V1.0
-
 print("Starting rover search script")
 
 import asyncio
@@ -37,6 +35,13 @@ STEP_SIZE = INIT.STEP_SIZE  # when going forward - how far, in meters
 FOCUS_HEADING = INIT.NORTHWEST
 SEARCH_ALTITUDE = INIT.SEARCH_ALTITUDE
 MEASUREMENT_SPAN = INIT.MEASUREMENT_SPAN
+# GP waypoint optimizer
+epsilon = INIT.epsilon
+op_method = INIT.op_method
+
+# starting kernel for GP
+kernel = INIT.kernel
+
 
 # DEBUGGING
 DEBUG_DATA_MANAGER = False
@@ -44,11 +49,12 @@ DEBUG_DATA_MANAGER = False
 
 # Initialize the GP 
 # this is the process function that takes in data and returns a rover position estimate, and waypoint
-GP = ProcessFunction()
+GP = ProcessFunction(kernel=kernel)
 print("Default Linespace")
 GP.print_linespace(linespace_id="UGV") # print the default linespace
 
 class RoverSearch(StateMachine):
+    """State machine for rover search script"""
 
     def initialize_args(self, extra_args: List[str]):
         """Parse arguments passed to vehicle script"""
@@ -107,7 +113,7 @@ class RoverSearch(StateMachine):
         # this spawns a process which keeps all data without blocking the main thread
         # however, should be polled occasionally within @background so that DM maintains the latest data
         # DM then with the latest data can be used to update the GP (it sanitizes the data)
-        self.DM = DataManager(vehicle)
+        self.DM = DataManager()
         # Start the data manager
         self.DM.start()
         self.valid_measurement = False # flag for if the measurement is to be filtered and used in the GP
@@ -124,8 +130,14 @@ class RoverSearch(StateMachine):
     ########################################################################################### BACKGROUND
     @background
     async def data_manager(self, vehicle: Vehicle):
+        '''new data should be processed if within a valid measurement time
+        new data is used to update the GP
+        the GP is used to append a new waypoint to the waypoint list
+        the waypoint list is used to update the vehicle's mission'''
+
         # use the data manager to get the latest data
-        num_samples_collected = self.DM.run(mark_measurement=self.valid_measurement) # collect data and mark valid if at a measurement waypoint
+        # collect data and mark valid if at a measurement waypoint
+        num_samples_collected = self.DM.run(mark_measurement=self.valid_measurement, vehicle=vehicle) 
 
         if DEBUG_DATA_MANAGER:
             print(f"background: Collected {num_samples_collected} samples")
@@ -134,32 +146,31 @@ class RoverSearch(StateMachine):
             # print the last data point
             print(f"background: Last data point: {self.DM.get_human_readable(-1)}")
 
-        # new data should be processed if within a valid measurement time
-        # new data is used to update the GP
-        # the GP is used to append a new waypoint to the waypoint list
-        # the waypoint list is used to update the vehicle's mission
-
-
         # dynamically change the sleep time based upon the current queue size
         # this is to ensure that the data manager is not overloaded
         q = self.DM.get_queue_size()
-        if q >= 10: # if the queue is large, sleep for a shorter time
+        if q >= 5: # if the queue is large, sleep for a shorter time
             await asyncio.sleep(0.01)
         else: # if the queue is small, sleep for a longer time
             await asyncio.sleep(0.1)
     @background
     async def mission_timer(self, vehicle: Vehicle):
+        '''this function is used to report the position of the rover at 3 and 10 minutes into the mission'''
         if self.mission_started:
             # check if a search time has eleapsed
             if datetime.datetime.now() > self.min_3_time:
                 if not self.min_3_reported:
+                    print('time now is: ', datetime.datetime.now())
                     print("3 minutes have elapsed")
                     print("=====HERE IS THE REPORTED POSITION=====")
+                    print(f"Reported position: {GP.get_peak_prediction()}") # print the peak prediction
                     self.min_3_reported = True
             if datetime.datetime.now() > self.min_10_time:
                 if not self.min_10_reported:
+                    print('time now is: ', datetime.datetime.now())
                     print("10 minutes have elapsed")
                     print("=====HERE IS THE REPORTED POSITION=====")
+                    print(f"Reported position: {GP.get_peak_prediction()}") # print the peak prediction
                     self.min_10_reported = True
         
         await asyncio.sleep(1) # check at least once per second
@@ -168,23 +179,28 @@ class RoverSearch(StateMachine):
     ########################################################################################### START
     @state(name="start", first=True)
     async def start(self, vehicle: Drone):
-
+        '''this is the first (takeoff) state of the rover search script'''
+        # print("=====waiting for arm command=====")
+        # while not vehicle.armed: # poor mans await_armed
+        #     await asyncio.sleep(0.5)
+        
         # record the start time of the search, and the times for the 3 and 10 minute reports
         self.start_time = datetime.datetime.now()
         self.min_3_time = self.start_time + datetime.timedelta(minutes=3)
         self.min_10_time = self.start_time + datetime.timedelta(minutes=10)
-        self.mission_started = True # LETS GOoooo!!!
+        self.mission_started = True # LETS GOoooo!!! (enable the mission timer background task)
+        print(f"start time marked @ {self.start_time.strftime('%H:%M:%S%f')}")
 
         # log the start location BEFORE takeoff (takeoff sets the _home_location)
         self.home_location = vehicle.position
         print(f"Home location is {vehicle.position.toJson()}")
         
         # Takeoff
-        print(f"marked waiting for arm command at: {self.start_time.strftime('%H:%M:%S%f')}")
+        print("Taking off...after arm command")
         await vehicle.takeoff(SEARCH_ALTITUDE)
-        print("Taking off...")
+        print("waiting for ready signal...")
         await vehicle.await_ready_to_move()
-        print(f"marked mission start time as {self.start_time.strftime('%H:%M:%S%f')}")
+        print(f"\"mission\" start @ {self.start_time.strftime('%H:%M:%S%f')}")
         await vehicle.await_ready_to_move()
         print(f"marked takeoff complete: @ {datetime.datetime.now().strftime('%H:%M:%S%f')}")
         print(f"Takeoff took {datetime.datetime.now() - self.start_time} seconds")
@@ -201,43 +217,16 @@ class RoverSearch(StateMachine):
     ########################################################################################### FORWARD
     @state(name="go_forward")
     async def go_forward(self, vehicle: Vehicle):
-        # go forward and continually log the vehicle's position
 
         # get the next waypoint
         next_waypoint = INIT.get_next_waypoint()
-        if next_waypoint is None:
-            print("No more waypoints in planned route, retrieve next waypoint from ProcessFunction")
-            # TEMP set next waypoint to be the home location
-            next_waypoint = vehicle.home_coords # temporary until we get the next waypoint from the GP
+        if next_waypoint is None: # this should never happen
+            print("No more waypoints in planned route, retrieve next waypoint from ProcessFunction!")
+            next_waypoint = vehicle.home_coords 
             print(f"Next waypoint is {next_waypoint.toJson()}")
         else:    
             print(f"Moving to next waypoint: {next_waypoint.toJson()}")
             print(f"There are {len(INIT.waypoints)} waypoints left in the list")    
-
-        # # use the current vehicle heading to move forward
-        # heading = vehicle.heading
-        # heading_rad = heading * 2 * math.pi / 360
-        # move_vector = VectorNED(
-        #     STEP_SIZE * math.cos(heading_rad), STEP_SIZE * math.sin(heading_rad), 0
-        # )
-
-        # # ensure the next location is inside the geofence
-        # cur_pos = vehicle.position
-        # next_pos = vehicle.position + move_vector
-        # (valid_waypoint, msg) = self.safety_checker.validateWaypointCommand(
-        #     cur_pos, next_pos
-        # )
-        
-        # # if the next location violates the geofence turn 90 degrees
-        # if not valid_waypoint:
-        #     print("Can't go there:")
-        #     print(msg)
-        #     return "turn_right_90"
-
-        # # otherwise move forward to the next location
-        # moving = asyncio.ensure_future(
-        #     vehicle.goto_coordinates(vehicle.position + move_vector)
-        # )
 
         # move forward to the next location
         moving = asyncio.ensure_future(vehicle.goto_coordinates(next_waypoint))
@@ -277,17 +266,19 @@ class RoverSearch(StateMachine):
         self.valid_measurement = False # reset the valid measurement flag
 
         # filter the data and update the GP
-        avg_power, avg_quality, avg_location = self.DM.filter_data_avg()
-        print(f"Filtered data (avg): Pwr:{avg_power}, Qual:{avg_quality}, {avg_location.toJson()}")
+        avg_power, avg_quality, avg_location, avg_varience, avg_heading = self.DM.filter_data_avg()
+        print(f"Filtered data (avg): Pwr:{avg_power},Var:{avg_varience}, Qual:{avg_quality}, {avg_location.toJson()}, heading:{avg_heading}")
 
         GP.add_reading(position=avg_location, reading=avg_power)
-        GP.predict() # update the GP
+        GP.predict(linespace_id='ugv') # update the GP and predict the ugvs position
+        GP.predict(linespace_id='uav') # used to predict the uav's next waypoint
+
         pred=GP.get_peak_prediction() # get the peak prediction
         print(f"GP prediction: {pred}")
         # if waypoint list is empty, get the next waypoint from the GP
         if len(INIT.waypoints) == 0:
             # get the next waypoint from the GP
-            next_waypoint = GP.process_optimizer()
+            next_waypoint = GP.process_optimizer(optimizer=op_method, epsilon=epsilon)
             # convert the next waypoint to a Coordinate
             next_waypoint = Coordinate(next_waypoint[0], next_waypoint[1], SEARCH_ALTITUDE)
             print(f"Next waypoint from GP: {next_waypoint.toJson()}")
@@ -296,6 +287,11 @@ class RoverSearch(StateMachine):
             print(f"Next waypoint from GP (limited): {next_waypoint_limited.toJson()}")
             # add the next waypoint to the list of waypoints
             INIT.waypoints.append(next_waypoint_limited)
+
+        # write the current GP data to a pickle file for later analysis
+        GP.save_pickle("gp.pickle")
+        print("Saved GP data to gp.pkl")
+
         # check_end and return the appropriate state
         return "go_forward" if not self.check_end() else "end"
     

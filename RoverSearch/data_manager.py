@@ -13,7 +13,7 @@
 # it also is responsible for keeping a log of all data and keeping the NamedTuple DataPoint structure
 
 import numpy as np
-from multiprocessing import Process, Queue
+from multiprocessing import Process, Queue, Manager
 from typing import NamedTuple
 import datetime
 from aerpawlib.util import Coordinate, VectorNED
@@ -28,16 +28,19 @@ import zmq
 # add a form of vehicle identification to the data structures for multiple vehicle logging support
 # form a stationary filter and feedback to the vehicle to if the data collected has settled to a stationary point
 
+# tie worker directly into dronekit to get the vehicle data?
 
 # CONSTANTS
-POLL_RATE = 29 # Hz (~29 Hz output from the radio), keep worker from taking too much CPU
-DEBUG = False
+POLL_RATE = 30 # Hz (~29 Hz output from the radio), keep worker from taking too much CPU
+DEBUG_WORKER = False
+DEBUG_PARENT = False
 
 
 class DataPoint(NamedTuple):
     '''Data structure for a single data point'''
     # time data ----------------
-    timestamp: datetime.datetime
+    radio_timestamp: datetime.datetime
+    gps_timestamp: datetime.datetime
     # gps data -----------------
     position: Coordinate
     heading: float
@@ -61,10 +64,21 @@ class DataPoint(NamedTuple):
     #phase_offset: int # track the phase offset of the signal
     #raw_amplitude: float # track the raw amplitude of the signal (before any processing/filtering)
 
+class RadioData(NamedTuple): # this needs to be split out because I cannot pass the vehicle object to the worker...
+    '''Data structure for the radio part of a single data point'''
+    # time data ----------------
+    timestamp: datetime.datetime
+    # radio data ----------------
+    Channel: float
+    Quality: float
+    #Valid: bool # track if the radio has a valid signal lock
+    #phase_offset: int # track the phase offset of the signal
+    #raw_amplitude: float # track the raw amplitude of the signal (before any processing/filtering)
+
 class DataManager:
     '''Class for managing the data from the GPS and radio'''
     ############################################################################# DATA WORKER
-    def _data_worker(self, data_queue:Queue, V:Vehicle) -> None:
+    def _data_worker(self, data_queue:Queue) -> None:
         '''Worker function for polling the data from the vehicle and radio'''
         # initialize the zmq context
         context = zmq.Context()
@@ -78,75 +92,49 @@ class DataManager:
         # report that the worker has started
         print("Data Manager worker started")
 
-        while True: # SOMETHING IN HERE IS TOO SLOW ... prbly the fifo read
+        while True:
             read1 = datetime.datetime.now()
-
             # blocking recv waits for a message
             msg = socket.recv() 
-
             # unpack the data into a numpy array
             data = np.frombuffer(msg, dtype=np.float32, count=-1) # power is a float32, count=-1 means read all
             # only take the first element of the array, in case there is more than one
             power = data[0]
-            
             # static temp value for quality
             quality = 0.0
-
-            read2 = datetime.datetime.now()
-
-            read3 = datetime.datetime.now()
             timestamp = datetime.datetime.now()
-            # poll the GPS
-            gpsInfo = (int(V.gps.fix_type),int(V.gps.satellites_visible),float(V.gps.eph), float(V.gps.epv))
-            position = V.position
-            heading = V.heading
-            velocity = V.velocity
-            attitude = (float(V.attitude.pitch), float(V.attitude.roll), float(V.attitude.yaw))
-            battery = (float(V.battery.level), float(V.battery.voltage), float(V.battery.current))
-            moving = bool(V.done_moving) # this seems to never change
 
-            read4 = datetime.datetime.now()
-            # create the data structure
-            data = DataPoint(timestamp, position, heading, gpsInfo, velocity, attitude, battery, moving,
-                             power, quality)
-
-            # print some debug info
-            if DEBUG:
-                # print human readable data
-                for field in data._fields:
-                    if field == "position":
-                        print(f"{field}: {getattr(data, field).toJson()}") # print human readable position
-                    else:
-                        print(f"{field}: {getattr(data, field)}")
-                print(f"read1: {read1}")
-                print(f"read2: {read2}")
-                print(f"read3: {read3}")
-                print(f"read4: {read4}")
-
-                # print the difference between the reads
-                print(f"read1 - read2: {read2-read1}")
-                print(f"read2 - read3: {read3-read2}")
-                print(f"read3 - read4: {read4-read3}")
-
+            # create the radio data structure
+            radio_data = RadioData(timestamp, power, quality)
 
             # add the data to the queue
-            data_queue.put(data)
+            data_queue.put(radio_data)
+
+            read4 = datetime.datetime.now()
+            # print some debug info
+            if DEBUG_WORKER:
+                # print human readable data
+                for field in radio_data._fields:
+                    print(f"{field}: {getattr(radio_data, field)}")
+                print(f"loop begin: {read1}")
+                print(f"loop end: {read4}")
+                # print the difference between the reads
+                print(f"loop time: {read4-read1}")
 
             # sleep for the poll rate
             time.sleep(1/POLL_RATE)
 
     ############################################################################# INIT
-    def __init__(self, V:Vehicle) -> None:
+    def __init__(self) -> None:
         '''Initialize the data manager'''
-        # initialize the data structures and vehicle
-        self.V = V
+
         self.data = []
         self.data_filtered = [] # data that is filtered into a single data point for the GP
         self.interval = 0 # the time interval between the last two data points
         
         # initialize the queues and processes
         self.queue = Queue()
-        self.data_process = Process(target=self._data_worker, args=(self.queue, self.V))
+        self.data_process = Process(target=self._data_worker, args=(self.queue,))
 
     def start(self):
         '''Start the data manager'''
@@ -162,25 +150,43 @@ class DataManager:
         print("Data Manager subprocess terminated")
 
     ############################################################################# RUN
-    def run(self, mark_measurement=False):
+    def run(self, mark_measurement=False, vehicle:Vehicle=None):
         '''Run the data manager gather loop
         returns the number of data points in the data structure
-        if mark_measurement is positive, then it will add the measurement to a seperate data structure (indexed by mark_measurement)
-        to be filtered into one datapoint for the GP'''
+        if mark_measurement is positive, then it will add the measurement to a seperate data structure 
+        (indexed by mark_measurement) to be filtered into one datapoint for the GP
+        The RadioData is combined with the GPS data to form a single DataPoint 
+        '''
         try:
             if not self.queue.empty():
-                if DEBUG:
+                if DEBUG_PARENT:
                     print(f"Data Manager: queue size {self.queue.qsize()}")
 
                 for _ in range(self.queue.qsize()):
-                    self.data.append(self.queue.get(block=False))
-                    if mark_measurement == True: # add the last measurement to the filtered data structure as well
-                        self.data_filtered.append(self.data[-1])
+                    # get the radio data
+                    radio_data = RadioData(*self.queue.get(block=False)) # unpack, * is the unpack operator
+                    # create the data point
+                    data_point = DataPoint(
+                        radio_timestamp=radio_data.timestamp,
+                        gps_timestamp=datetime.datetime.now(),
+                        position=vehicle.position,
+                        heading=vehicle.heading,
+                        gps_status=[vehicle.gps.fix_type, vehicle.gps.satellites_visible, vehicle.gps.eph, vehicle.gps.epv],
+                        velocity=vehicle.velocity,
+                        attitude=[vehicle.attitude.pitch, vehicle.attitude.roll, vehicle.attitude.yaw],
+                        battery=[vehicle.battery.level, vehicle.battery.voltage, vehicle.battery.current],
+                        moving=vehicle.done_moving,
+                        Channel=radio_data.Channel,
+                        Quality=radio_data.Quality
+                    )
+                    self.data.append(data_point)
+                    if mark_measurement == True:
+                        self.data_filtered.append(self.data[-1]) # copy the (just added) data point into the filtered data array
                     # calculate the interval
                     if len(self.data) > 1:
-                        self.interval = self.data[-1].timestamp - self.data[-2].timestamp
+                        self.interval = self.data[-1].radio_timestamp - self.data[-2].radio_timestamp
                     return len(self.data)
-                    # TODO add filtering and vector averaging
+
         except KeyboardInterrupt:
             print("Keyboard interrupt detected, exiting")
             self.terminate_worker()
@@ -205,11 +211,13 @@ class DataManager:
         avg_lon = np.mean([d.position.lon for d in self.data_filtered])
         avg_alt = np.mean([d.position.alt for d in self.data_filtered])
         avg_location = Coordinate(lat=avg_lat, lon=avg_lon, alt=avg_alt)
+        avg_heading = np.mean([d.heading for d in self.data_filtered])
+        avg_varience = np.var([d.Channel for d in self.data_filtered])
 
         # clear the data_filtered structure
         self.data_filtered = []
 
-        return avg_power, avg_quality, avg_location
+        return avg_power, avg_quality, avg_location, avg_varience, avg_heading
     
     def get_human_readable(self, index:int) -> str:
         '''Get the data[index] in a human readable format'''
