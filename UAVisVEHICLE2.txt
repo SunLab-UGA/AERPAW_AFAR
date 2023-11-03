@@ -1,0 +1,19 @@
+# This is a UAV! (The Reciever and "seacher" in this experiment)
+
+# Setup instructions:
+
+# setup the RX:
+cd /root/Profiles/ProfileScripts/Radio
+cp Samples/startGNURadio-ChannelSounder-RX.sh startRadio.sh
+
+# enable the RX script:
+## add (or uncomment) /Radio/startRadio.sh within /root/startexperiment.sh
+echo "/Radio/startRadio.sh" >> /root/startexperiment.sh
+
+# enable the vehicle script
+cd /root/Profiles/ProfileScripts/Vehicle
+cp Samples/startRoverSearch.sh startVehicle.sh
+
+# return to home directory
+cd ~
+

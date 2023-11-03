@@ -13,6 +13,7 @@ from pykml.factory import KML_ElementMaker as KML
 from lxml import etree
 import dronekit
 from math import sin, cos, sqrt, atan2, radians
+import numpy as np
 
 
 class VectorNED:
@@ -138,6 +139,9 @@ class Coordinate:
         self.lon = lon
         self.alt = alt
 
+    def asNumpy(self): # allows for easy numpy manipulation
+        return np.array([self.lat, self.lon, self.alt])
+
     def location(self) -> dronekit.LocationGlobalRelative:
         """
         Convert the location held by this `Coordinate` to an object usable by
@@ -245,6 +249,11 @@ class Coordinate:
             )
         else:
             raise TypeError()
+        
+    def __eq__(self, o):
+        if not isinstance(o, Coordinate):
+            raise TypeError()
+        return self.lat == o.lat and self.lon == o.lon and self.alt == o.alt
 
     def toJson(self):
         """Return a JSON string representing this Coordinate object"""
@@ -259,21 +268,19 @@ class Coordinate:
         return (self.lat, self.lon)
     
     def limit_distance(self, other, max_distance):
-        """Limit the distance between two coordinates to a maximum distance"""
+        """Limit the distance between two coordinates to a maximum distance 2D"""
         if not isinstance(other, Coordinate):
             raise TypeError()
         if self.distance(other) > max_distance:
-            # place a debug print here
-            print(f"my position is: {self}")
-            print(f"Distance between {self} and {other} is {self.distance(other)} meters")
-
+            # print(f"my position is: {self}")
+            # print(f"Distance between {self} and {other} is {self.distance(other)} meters")
             vec = other - self  # get the vector between the two coordinates
             vec = vec.norm() # normalize the vector
             vec = VectorNED(vec.north * max_distance, vec.east * max_distance, 0) # ignore down
-            print(f"Vector is {str(vec)}")
+            # print(f"Vector is {str(vec)}")
             other_corrd = self + vec
-            print(f"checked Distance is {self.distance(other_corrd)}")
-            print(f"output:{str(other_corrd)}")
+            # print(f"checked Distance is {self.distance(other_corrd)}")
+            # print(f"output:{str(other_corrd)}")
             return other_corrd
         else:
             return other

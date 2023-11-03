@@ -14,14 +14,18 @@ from scipy.stats import norm
 
 from aerpawlib.util import Coordinate, VectorNED
 from aerpawlib.util import inside, readGeofence
-
 import pickle
 
-#TODO: add the creation of interactive figures for tracking the GP progress over time
+import warnings
+warnings.filterwarnings("ignore") # ignore the warnings from the GP
+
+from init import TrialInit
+# create a trial init object
+INIT = TrialInit()
+
+
+
 #TODO: add the thresholding of the GP to assess the probability of the rover being with a certain area
-#TODO: add Bayesian optimization to the GP to guide the search over time
-#TODO: the bayesian optimization needs to select from only UAV linespace points!
-#TODO: add a pickling function to save progress and data to a file
 
 class ProcessFunction:
 
@@ -77,6 +81,14 @@ class ProcessFunction:
             if i % resolution == 0:
                 print()
 
+    def print_linespace_grid_resolution(self, linespace_id="UGV"):
+        """print the linespace grid resolution"""
+        if linespace_id == "UGV":
+            grid_resolution = self.grid_resolution_ugv
+        elif linespace_id == "UAV":
+            grid_resolution = self.grid_resolution_uav
+        print(f"{linespace_id} grid resolution:", grid_resolution)
+
     def __init__(self,
                  geofence:str=default_geofence_path_uav,
                  kernel:Kernel=default_kernel
@@ -106,9 +118,23 @@ class ProcessFunction:
         self.predictions = []
         self.std = []
 
+        self.peak_prediction_history = [] # track the peak prediction magnitude over time
+        self.peak_prediction_history_mse = [] # track the peak prediction mse over time
+        self.peak_prediction_index_history = [] # track the peak prediction index over time
+        self.peak_prediction_coords_history = [] # track the peak prediction coords over time (UGV LOCATION!)
+        self.peak_prediction_linespace_history = [] # track the peak prediction linespace over time (UGV LOCATION!)
+
+        self.refined_peak_prediction_coords_history = [] # track the refined peak prediction coords over time (UGV LOCATION!)
+        self.refined_peak_prediction_linespace_history = [] # track the refined peak prediction linespace over time (UGV LOCATION!)
+        self.small_linespace_history = [] # track the small linespace used to refine the peak prediction
+
         # track the means and mses
         self.Z_history = []
         self.Z_mse_history = []
+
+        # track lml
+        self.log_marginal_likelihood_history = []
+        self.log_marginal_likelihood_gradient_history = []
 
         # track the last mean and std of the GP over the uav linespace (used for path optimization)
         self.predictions_uav = []
@@ -116,20 +142,17 @@ class ProcessFunction:
         self.Z_history_uav = []
         self.Z_mse_history_uav = []
 
+        # functionalize the peak prediction with a constant alpha
+        self.alpha = INIT.alpha
+        self.db_offset = INIT.db_offset
+
         # track the optimizer history (locations of the next best point to sample)
         self.optimizer_history = []
 
-        # kernel (default)
-        # self.kernel = (C(0.01**2, (1e-4, 1e7)) * RBF(2.2, (1e-2, 1e2)) +
-        #             WhiteKernel(noise_level=1e-10, noise_level_bounds=(1e-10, 1e+1)))
-        
-        # kernel (optimized)
-        # self.kernel = (C(9.18**2) * RBF(1.43) +
-        #             WhiteKernel(noise_level=1.12e-1))
-
-        self.kernel = kernel # this is the initial kernel, the updated kernel is stored in the GP
+        self.kernel = kernel # this is the initial kernel, the updated kernel is stored in the GP (_kernel)
         self.GP = GaussianProcessRegressor(kernel=self.kernel, optimizer='fmin_l_bfgs_b',
-                                           n_restarts_optimizer=10, copy_X_train=True,
+                                           n_restarts_optimizer=30, #20
+                                           copy_X_train=True,
                                            random_state=42)
 
     def get_num_readings(self):
@@ -139,9 +162,9 @@ class ProcessFunction:
         """update the linespace with a new boundry"""
         self.linespace_uav, self.grid_distance = self.create_linespace(ne_coord, sw_coord, resolution=resolution)
     
-    def add_reading(self, position:Coordinate, reading, bias=1): # position is a list of [y,x] coordinates
+    def add_reading(self, position:Coordinate, reading): # position is a list of [y,x] coordinates
         pos = [position.lat, position.lon] 
-        z = reading * bias
+        z = reading + self.db_offset # offset the reading to prevent negative values
         self.reading_positions.append(pos.copy())
         self.readings.append(z)
 
@@ -161,6 +184,9 @@ class ProcessFunction:
             lml, lml_gradient = self.GP.log_marginal_likelihood(self.GP.kernel_.theta, eval_gradient=True)
             self.log_marginal_likelihood = lml
             self.log_marginal_likelihood_gradient = lml_gradient
+            self.log_marginal_likelihood_history.append(lml)
+            self.log_marginal_likelihood_gradient_history.append(lml_gradient)
+
             return self.log_marginal_likelihood, self.log_marginal_likelihood_gradient
         
     def predict(self, linespace_id="ugv"):
@@ -177,6 +203,29 @@ class ProcessFunction:
             self.Z_mse_history.append(std)
             self.predictions = predictions
             self.std = std
+            
+            # functionalize the predictions by subtracting the mse from the mean for each point
+            # this hopefully will make the GP more conservative in knowing its peak prediction
+            for i in range(len(predictions)):
+                predictions[i] = predictions[i] - self.alpha * std[i]
+
+            # find the peak prediction
+            self.peak_prediction = np.max(predictions)
+            self.peak_prediction_index = np.argmax(predictions)
+            # store the mse of the peak prediction
+            peak_prediction_mse = std[self.peak_prediction_index]
+            
+
+            self.peak_prediction_history.append(self.peak_prediction)
+            self.peak_prediction_index_history.append(self.peak_prediction_index)
+            self.peak_prediction_coords_history.append(self.linespace_ugv_coords[self.peak_prediction_index])
+            self.peak_prediction_linespace_history.append(self.linespace_ugv[self.peak_prediction_index])
+
+            # and mse history
+            self.peak_prediction_history_mse.append(peak_prediction_mse)
+
+            # refine the peak prediction
+            self.refine_peak_prediction()
 
         elif linespace_id == "uav": # this is used ONLY for planning the next UAV waypoint
             linespace = self.linespace_uav
@@ -186,22 +235,52 @@ class ProcessFunction:
             self.Z_mse_history_uav.append(std)
             self.predictions_uav = predictions
             self.std_uav = std
+
+        # TODO!!!!
         # elif linespace_id == "ugv_small":
         #     linespace = self.linespace_ugv_small
-
-
-
         return predictions, std
     
-    def get_peak_prediction(self): # get the peak prediction of the GP for the ugv(rover)
-        """get the peak prediction of the GP"""
-        if not self.gp_ready:
-            self.update_GP()
+    def refine_peak_prediction(self, resolution=10, length=0.000_01): # length is roughly degrees/meter, resolution is the number of meters
+        '''refine the peak prediction to be more accurate
+        by creating a smaller linespace around the peak prediction
+        only call AFTER the GP has been updated, and the peak prediction has been found!'''
+        scale = length * int(resolution/2) # roughly 10x10 meters
+        # get the peak prediction coords
+        peak_prediction = self.peak_prediction_linespace_history[-1]
+        # split out the lat and lon
+        lat = peak_prediction[0]
+        lon = peak_prediction[1]
+        # generate the north-east and south-west coordinates, shouldn't matter much which is which
+        ne_coord = Coordinate(lat-scale, lon-scale)
+        sw_coord = Coordinate(lat+scale, lon+scale)
+        # use these to create a new linespace
+        linespace, linespace_coord, dist, resolution = self.create_linespace(ne_coord, sw_coord, resolution=resolution)
+        self.small_linespace_history.append(linespace) # track the small linespace history
+        # print("small linespace:", linespace)
+
+        #TODO remove any points that are outside of the boundry
+        # remove_index = []
+        # for i in range(len(linespace_coord)):
+        #     if not inside(linespace_coord[i].lon, linespace_coord[i].lat, self.boundry_uav):
+        #         remove_index.append(i)
+        # # remove the points from the linespace
+        # linespace = np.delete(linespace, remove_index, axis=0) 
+        # linespace_coord = np.delete(linespace_coord, remove_index, axis=0)
+
+        # predict the GP at the linespace points
+        predictions = self.GP.predict(linespace)
+        # find the peak prediction
+        peak_prediction_index = np.argmax(predictions)
+        # convert the index to a Coordinate
+        refined_peak_prediction_linespace = linespace[peak_prediction_index]
+        refined_peak_prediction_coords = linespace_coord[peak_prediction_index]
+        # store the refined peak prediction
+        self.refined_peak_prediction_linespace_history.append(refined_peak_prediction_linespace)
+        self.refined_peak_prediction_coords_history.append(refined_peak_prediction_coords)
         
-        self.peak_prediction = np.max(self.GP.predict(self.linespace_ugv))
-        self.peak_prediction_index = np.argmax(self.GP.predict(self.linespace_ugv))
-        return self.linespace_ugv[self.peak_prediction_index], self.peak_prediction
-    
+        return refined_peak_prediction_coords
+
     ###################################################################################### VALIDATION
     def get_log_marginal_likelihood(self):
         """get the log marginal likelihood of the GP"""
@@ -225,7 +304,7 @@ class ProcessFunction:
         self.probability_gradient = norm.pdf(self.GP.predict(self.linespace_uav))
         return self.probability_gradient
     
-    ###################################################################################### File Saveing
+    ###################################################################################### File Saving
     def save_pickle(self, filename="gp.pickle"):
         """save GP to a pickle file"""
         save_dict = {
@@ -255,6 +334,15 @@ class ProcessFunction:
                     'reading_positions':self.reading_positions,
                     'num_readings':self.num_readings,
                     'kernel':self.GP.kernel_,
+
+                    'peak_prediction_history':self.peak_prediction_history,
+                    'peak_prediction_coords_history':self.peak_prediction_linespace_history,
+                    'refined_peak_prediction_coords_history':self.refined_peak_prediction_linespace_history,
+                    'small_linespace_history':self.small_linespace_history, # going to find that bug!
+
+                    # log marginal likelihood
+                    'log_marginal_likelihood':self.log_marginal_likelihood_history,
+                    'log_marginal_likelihood_gradient':self.log_marginal_likelihood_gradient_history,
 
                     # optimizer history
                     'optimizer_history':self.optimizer_history
@@ -344,6 +432,93 @@ class ProcessFunction:
             # append the optimizer history
             self.optimizer_history.append(xx)
             return xx#, Xplot
+
+    def nudge(self, waypoint:Coordinate, position:Coordinate, min_dist = 10, max_dist=35 ,direction="random"):
+        """check min distance and nudge the waypoint to not repeat the same measurement"""
+        limited_waypoint = position.limit_distance(waypoint, max_dist) # this is the default if no nudge is needed
+        # check the distance between the waypoint and the current position
+        dist = waypoint.distance(position)
+        # print("distance between next waypoint and current position:", dist)
+        nudged = False # flag to indicate if the waypoint was nudged
+        if dist < min_dist:
+            nudged = True
+            # if the distance is too close, nudge the waypoint
+            if direction == "random":
+                print("~~nudging waypoint to prevent repeat measurement~~")
+                # pick a random linespace point to go towards
+                index = np.random.randint(0, len(self.linespace_uav))
+                random_waypoint = self.linespace_uav_coords[index] # this is a Coordinate class
+                # print("random waypoint selected:", random_waypoint.toJson())
+                # relimit the distance to the min_dist (to prevent large steps)
+                limited_nudged_waypoint = position.limit_distance(random_waypoint, min_dist)
+                return limited_nudged_waypoint, nudged
+            else: # safe default
+                return limited_waypoint, nudged
+        else: # safe default
+            return limited_waypoint, nudged
+        
+    def check_rover_in_uav_boundry(self, mypos:Coordinate, tolerence=10) -> bool:
+        """check if the mypos is within tolerence of rover and is within the UAV boundry"""
+        # check distance to "rover" peak prediction
+        rvr = self.peak_prediction_coords_history[-1]
+        dist = mypos.distance(Coordinate(rvr.lat, rvr.lon, mypos.alt)) # take the altitude from the mypos
+        if dist < tolerence:
+            # check if the rover is within the UAV boundry
+            if inside(rvr.lon, rvr.lat, self.boundry_uav):
+                return True
+            else:
+                return False
+        else:
+            return False
+   
+    def aux_path(self, center=None, radius=50, num_points=10):
+        """create a path around the rover peak prediction"""
+        if center is None:
+            rvr = self.peak_prediction_coords_history[-1] # use the most recent peak prediction
+            # rvr = vehicle_location # just use the vehicle location instead (because we may call this with prediction outside of the boundry)
+        else:
+            rvr = center
+
+        rvr = Coordinate(rvr.lat, rvr.lon, 0) # set the altitude to 0
+        # create a circle of points around the rover peak prediction
+        path = []
+        # create a vector to rotate around
+        pt = VectorNED(radius, 0, 0) # north, east, down
+        for i in range(num_points):
+            # calculate the angle
+            angle = i * (360/num_points)
+            # calculate the point
+            point = pt.rotate_by_angle(angle)
+            # add the rover peak prediction to the point
+            point =  rvr + point
+            # append the point to the path
+            path.append(point)
+        
+        print(f"{len(path)} aux path created:")
+        for i in range(len(path)):
+            print(path[i].toJson())
+
+        # check if the rover is within the UAV boundry
+        path_in_boundry = []
+        for i in range(len(path)):
+            if inside(path[i].lon, path[i].lat, self.boundry_uav):
+                path_in_boundry.append(path[i])
+            else:
+                # find the closest point in the linespace that is within the UAV boundry
+                dist = np.ones(len(self.linespace_uav_coords)) * 1000000 # np array dist with a very large number becasue we want to find the min
+                for j in range(len(self.linespace_uav_coords)):
+                    dist[j] = path[i].distance(self.linespace_uav_coords[j])
+                min_index = np.argmin(dist)
+                path_in_boundry.append(self.linespace_uav_coords[min_index])
+                    
+        print(f"{len(path_in_boundry)} aux path after boundry check:")
+        for i in range(len(path_in_boundry)):
+            print(path_in_boundry[i].toJson())
+
+        return path_in_boundry # this is a list of Coordinate objects, remember to check alt!
+
+
+
 
 
 

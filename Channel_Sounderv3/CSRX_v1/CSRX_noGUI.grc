@@ -1,6 +1,7 @@
 options:
   parameters:
     author: ''
+    catch_exceptions: 'True'
     category: '[GRC Hier Blocks]'
     cmake_opt: ''
     comment: ''
@@ -162,7 +163,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1295, 540]
+    coordinate: [1200, 396.0]
     rotation: 0
     state: enabled
 - name: blocks_file_sink_0_0_0
@@ -180,7 +181,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1475, 818]
+    coordinate: [1352, 532.0]
     rotation: 0
     state: enabled
 - name: blocks_keep_m_in_n_0
@@ -482,50 +483,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [789, 323]
-    rotation: 0
-    state: enabled
-- name: epy_block_0_0
-  id: epy_block
-  parameters:
-    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
-      \ GRC will instantiate the first class it finds\nto get ports and parameters\
-      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
-      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
-      from gnuradio import gr\nimport pmt\nimport math\n\nclass blk(gr.sync_block):\
-      \  # other base classes are basic_block, decim_block, interp_block\n    \"\"\
-      \"Find the Peak Correlation Value and Phase where it occurs within the vector\"\
-      \"\"\n\n    def __init__(self, vector_length=4095):  # only default arguments\
-      \ here\n        \"\"\"arguments to this function show up as parameters in GRC\"\
-      \"\"\n        gr.sync_block.__init__(\n            self,\n            name='Max\
-      \ and Phase',   # will show up in GRC\n            in_sig=[(np.complex64,vector_length)],\n\
-      \            out_sig=[(np.float32,1),\n                     (np.float32,1),\n\
-      \                     (np.float32,1)]\n        )    \n        self.vector_length\
-      \ = vector_length\n\n\n    def work(self, input_items, output_items):\n    \
-      \    \"\"\"abs, argmax, putput the\"\"\" \n        # take the absolute value\
-      \ of all vector values\n        abs_vec = np.abs(input_items[0])\n        #\
-      \ find the index of the max value\n        indx = np.argmax(abs_vec)\n     \
-      \   # get the max value\n        max_val = np.max(abs_vec)\n        # write\
-      \ output items\n        output_items[0][0] = max_val\n        output_items[1][0]\
-      \ = indx*(2*math.pi)/self.vector_length # normalize the offset phase to radians\n\
-      \        output_items[2][0] = indx # return the raw index of the max value\n\
-      \n        # return the output item(s) vector length to the scheduler\n     \
-      \   # (here it is 1 vector item for each sample output)\n        return 1 #\
-      \ or len(output_items[0]) \n"
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    vector_length: '4095'
-  states:
-    _io_cache: ('Max and Phase', 'blk', [('vector_length', '4095')], [('0', 'complex',
-      4095)], [('0', 'float', 1), ('1', 'float', 1), ('2', 'float', 1)], 'Find the
-      Peak Correlation Value and Phase where it occurs within the vector', ['vector_length'])
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [795, 388]
+    coordinate: [880, 324.0]
     rotation: 0
     state: enabled
 - name: freq
@@ -730,6 +688,38 @@ blocks:
     clock_source6: ''
     clock_source7: ''
     comment: ''
+    dc_offs0: 0+0j
+    dc_offs1: 0+0j
+    dc_offs10: 0+0j
+    dc_offs11: 0+0j
+    dc_offs12: 0+0j
+    dc_offs13: 0+0j
+    dc_offs14: 0+0j
+    dc_offs15: 0+0j
+    dc_offs16: 0+0j
+    dc_offs17: 0+0j
+    dc_offs18: 0+0j
+    dc_offs19: 0+0j
+    dc_offs2: 0+0j
+    dc_offs20: 0+0j
+    dc_offs21: 0+0j
+    dc_offs22: 0+0j
+    dc_offs23: 0+0j
+    dc_offs24: 0+0j
+    dc_offs25: 0+0j
+    dc_offs26: 0+0j
+    dc_offs27: 0+0j
+    dc_offs28: 0+0j
+    dc_offs29: 0+0j
+    dc_offs3: 0+0j
+    dc_offs30: 0+0j
+    dc_offs31: 0+0j
+    dc_offs4: 0+0j
+    dc_offs5: 0+0j
+    dc_offs6: 0+0j
+    dc_offs7: 0+0j
+    dc_offs8: 0+0j
+    dc_offs9: 0+0j
     dc_offs_enb0: default
     dc_offs_enb1: default
     dc_offs_enb10: default
@@ -796,6 +786,70 @@ blocks:
     gain7: '0'
     gain8: '0'
     gain9: '0'
+    gain_type0: default
+    gain_type1: default
+    gain_type10: default
+    gain_type11: default
+    gain_type12: default
+    gain_type13: default
+    gain_type14: default
+    gain_type15: default
+    gain_type16: default
+    gain_type17: default
+    gain_type18: default
+    gain_type19: default
+    gain_type2: default
+    gain_type20: default
+    gain_type21: default
+    gain_type22: default
+    gain_type23: default
+    gain_type24: default
+    gain_type25: default
+    gain_type26: default
+    gain_type27: default
+    gain_type28: default
+    gain_type29: default
+    gain_type3: default
+    gain_type30: default
+    gain_type31: default
+    gain_type4: default
+    gain_type5: default
+    gain_type6: default
+    gain_type7: default
+    gain_type8: default
+    gain_type9: default
+    iq_imbal0: 0+0j
+    iq_imbal1: 0+0j
+    iq_imbal10: 0+0j
+    iq_imbal11: 0+0j
+    iq_imbal12: 0+0j
+    iq_imbal13: 0+0j
+    iq_imbal14: 0+0j
+    iq_imbal15: 0+0j
+    iq_imbal16: 0+0j
+    iq_imbal17: 0+0j
+    iq_imbal18: 0+0j
+    iq_imbal19: 0+0j
+    iq_imbal2: 0+0j
+    iq_imbal20: 0+0j
+    iq_imbal21: 0+0j
+    iq_imbal22: 0+0j
+    iq_imbal23: 0+0j
+    iq_imbal24: 0+0j
+    iq_imbal25: 0+0j
+    iq_imbal26: 0+0j
+    iq_imbal27: 0+0j
+    iq_imbal28: 0+0j
+    iq_imbal29: 0+0j
+    iq_imbal3: 0+0j
+    iq_imbal30: 0+0j
+    iq_imbal31: 0+0j
+    iq_imbal4: 0+0j
+    iq_imbal5: 0+0j
+    iq_imbal6: 0+0j
+    iq_imbal7: 0+0j
+    iq_imbal8: 0+0j
+    iq_imbal9: 0+0j
     iq_imbal_enb0: default
     iq_imbal_enb1: default
     iq_imbal_enb10: default
@@ -895,38 +949,6 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     nchan: '1'
-    norm_gain0: 'False'
-    norm_gain1: 'False'
-    norm_gain10: 'False'
-    norm_gain11: 'False'
-    norm_gain12: 'False'
-    norm_gain13: 'False'
-    norm_gain14: 'False'
-    norm_gain15: 'False'
-    norm_gain16: 'False'
-    norm_gain17: 'False'
-    norm_gain18: 'False'
-    norm_gain19: 'False'
-    norm_gain2: 'False'
-    norm_gain20: 'False'
-    norm_gain21: 'False'
-    norm_gain22: 'False'
-    norm_gain23: 'False'
-    norm_gain24: 'False'
-    norm_gain25: 'False'
-    norm_gain26: 'False'
-    norm_gain27: 'False'
-    norm_gain28: 'False'
-    norm_gain29: 'False'
-    norm_gain3: 'False'
-    norm_gain30: 'False'
-    norm_gain31: 'False'
-    norm_gain4: 'False'
-    norm_gain5: 'False'
-    norm_gain6: 'False'
-    norm_gain7: 'False'
-    norm_gain8: 'False'
-    norm_gain9: 'False'
     num_mboards: '1'
     otw: ''
     rx_agc0: Default
@@ -971,6 +993,7 @@ blocks:
     sd_spec6: ''
     sd_spec7: ''
     show_lo_controls: 'False'
+    start_time: '-1.0'
     stream_args: ''
     stream_chans: '[]'
     sync: sync
@@ -1000,7 +1023,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1287, 164]
+    coordinate: [1312, 276.0]
     rotation: 0
     state: enabled
 - name: virtual_sink_0_0
@@ -1013,7 +1036,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [998, 318]
+    coordinate: [1048, 324.0]
     rotation: 0
     state: enabled
 - name: virtual_source_0
@@ -1042,105 +1065,9 @@ blocks:
     coordinate: [32, 492.0]
     rotation: 0
     state: enabled
-- name: zeromq_pub_sink_0
-  id: zeromq_pub_sink
-  parameters:
-    address: tcp://127.0.0.1:64000
-    affinity: ''
-    alias: ''
-    comment: ''
-    hwm: '-1'
-    pass_tags: 'False'
-    timeout: '100'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1295, 463]
-    rotation: 0
-    state: true
-- name: zeromq_pub_sink_0_0
-  id: zeromq_pub_sink
-  parameters:
-    address: tcp://127.0.0.1:64001
-    affinity: ''
-    alias: ''
-    comment: ''
-    hwm: '-1'
-    pass_tags: 'False'
-    timeout: '100'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1477, 739]
-    rotation: 0
-    state: true
-- name: zeromq_pub_sink_0_1
-  id: zeromq_pub_sink
-  parameters:
-    address: tcp://127.0.0.1:64002
-    affinity: ''
-    alias: ''
-    comment: ''
-    hwm: '-1'
-    pass_tags: 'False'
-    timeout: '100'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1461, 261]
-    rotation: 0
-    state: enabled
-- name: zeromq_pub_sink_0_1_0
-  id: zeromq_pub_sink
-  parameters:
-    address: tcp://127.0.0.1:64003
-    affinity: ''
-    alias: ''
-    comment: ''
-    hwm: '-1'
-    pass_tags: 'False'
-    timeout: '100'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1458, 338]
-    rotation: 0
-    state: enabled
-- name: zeromq_pub_sink_0_1_0_0
-  id: zeromq_pub_sink
-  parameters:
-    address: tcp://127.0.0.1:64004
-    affinity: ''
-    alias: ''
-    comment: ''
-    hwm: '-1'
-    pass_tags: 'False'
-    timeout: '100'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1458, 412]
-    rotation: 0
-    state: enabled
 
 connections:
 - [blocks_add_const_vxx_0, '0', blocks_file_sink_0, '0']
-- [blocks_add_const_vxx_0, '0', zeromq_pub_sink_0, '0']
 - [blocks_complex_to_mag_0_0, '0', blocks_nlog10_ff_0_0, '0']
 - [blocks_complex_to_mag_0_0_0, '0', blocks_nlog10_ff_0_0_0, '0']
 - [blocks_keep_m_in_n_0, '0', blocks_moving_average_xx_1, '0']
@@ -1154,17 +1081,12 @@ connections:
 - [blocks_nlog10_ff_0_0, '0', blocks_sub_xx_0, '0']
 - [blocks_nlog10_ff_0_0_0, '0', blocks_sub_xx_0, '1']
 - [blocks_stream_to_vector_0_0, '0', epy_block_0, '0']
-- [blocks_stream_to_vector_0_0, '0', epy_block_0_0, '0']
 - [blocks_sub_xx_0, '0', blocks_file_sink_0_0_0, '0']
-- [blocks_sub_xx_0, '0', zeromq_pub_sink_0_0, '0']
 - [blocks_vector_to_stream_0_0, '0', blocks_keep_m_in_n_0, '0']
 - [blocks_vector_to_stream_0_0, '0', blocks_keep_m_in_n_0_0, '0']
 - [digital_costas_loop_cc_0, '0', virtual_sink_0, '0']
 - [digital_fll_band_edge_cc_0, '0', root_raised_cosine_filter_0, '0']
 - [epy_block_0, '0', virtual_sink_0_0, '0']
-- [epy_block_0_0, '0', zeromq_pub_sink_0_1, '0']
-- [epy_block_0_0, '1', zeromq_pub_sink_0_1_0, '0']
-- [epy_block_0_0, '2', zeromq_pub_sink_0_1_0_0, '0']
 - [freq_xlating_fft_filter_ccc_0_0, '0', blocks_stream_to_vector_0_0, '0']
 - [root_raised_cosine_filter_0, '0', blocks_keep_one_in_n_0_0_0, '0']
 - [uhd_usrp_source_0, '0', digital_fll_band_edge_cc_0, '0']
@@ -1173,3 +1095,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.5.0
