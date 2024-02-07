@@ -1,0 +1,23 @@
+[2023-12-13 12:31:07.785426] Starting rover search script
+[2023-12-13 12:31:07.787504] Loading other libraries
+[2023-12-13 12:31:08.428291] Imported init.py
+[2023-12-13 12:31:08.428921] Imported data_manager.py
+[2023-12-13 12:31:08.429346] Imported GP.py
+[2023-12-13 12:31:11.963697] Initializing rover search script (at_init)
+[2023-12-13 12:31:11.963866] rover_search PID IS:  92
+[2023-12-13 12:31:11.968184] Data Manager started
+[2023-12-13 12:31:11.968208] Data Manager spawned a process with PID: 157
+[2023-12-13 12:31:11.968312] GP LINESPACE RESOLUTION
+[2023-12-13 12:31:11.968343] UGV grid resolution: 50
+[2023-12-13 12:31:11.968351] UAV grid resolution: 50
+[2023-12-13 12:31:11.968424] Current time is 12:31:11
+[2023-12-13 12:31:11.968435] Done initializing rover search script (at_init)
+[2023-12-13 12:31:11.970535] Data Manager worker started
+[2023-12-13 12:31:12.969630] start time marked @ 2023-12-13 12:31:12.969529
+[2023-12-13 12:31:12.969803] Home location is {"lat": 35.7273712, "lon": -78.6962212, "alt": 1.546}
+[2023-12-13 12:31:12.969821] Taking off... (after arm command) to 40 meters
+[2023-12-13 12:31:12.969829] [aerpawlib] Guided command attempted. Waiting for safety pilot to arm
+[2023-12-13 12:31:25.062281] WARNING:autopilot:Radio Failsafe - Disarming
+[2023-12-13 12:31:26.021886] WARNING:autopilot:Radio Failsafe Cleared
+[2023-12-13 12:31:26.861939] WARNING:autopilot:Radio Failsafe - Disarming
+[2023-12-13 12:31:35.990849] CRITICAL:autopilot:PreArm: Radio failsafe on

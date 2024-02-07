@@ -1,0 +1,191 @@
+{
+    "0": {
+        "path": "Results_FINAL\\2023-11-09_19_27_30_vehicle_log.txt",
+        "10_min_log": "[2023-11-09 19:37:34.711683] Refined reported position: {\"lat\": 35.727694927204325, \"lon\": -78.69700321206942, \"alt\": 0}",
+        "3_min_log": "[2023-11-09 19:30:34.519973] Refined reported position: {\"lat\": 35.72806107957245, \"lon\": -78.69665002283071, \"alt\": 0}",
+        "10_min_result": [
+            35.727694927204325,
+            -78.69700321206942
+        ],
+        "3_min_result": [
+            35.72806107957245,
+            -78.69665002283071
+        ],
+        "10_min_distance_to_true_location_0": 49.462640298838764,
+        "10_min_distance_to_true_location_1": 252.20424733221068,
+        "10_min_distance_to_true_location_2": 239.81969353284973,
+        "3_min_distance_to_true_location_0": 58.99797699960238,
+        "3_min_distance_to_true_location_1": 256.7703390039817,
+        "3_min_distance_to_true_location_2": 203.21912826162298,
+        "10_min_min_distance_to_true_location": 49.462640298838764,
+        "3_min_min_distance_to_true_location": 58.99797699960238
+    },
+    "1": {
+        "path": "Results_FINAL\\2023-11-09_21_03_36_vehicle_log.txt",
+        "10_min_log": "[2023-11-09 21:13:40.153560] Refined reported position: {\"lat\": 35.72923731445461, \"lon\": -78.69926743474971, \"alt\": 0}",
+        "3_min_log": "[2023-11-09 21:06:40.089666] Refined reported position: {\"lat\": 35.727694927204325, \"lon\": -78.69725640130814, \"alt\": 0}",
+        "10_min_result": [
+            35.72923731445461,
+            -78.69926743474971
+        ],
+        "3_min_result": [
+            35.727694927204325,
+            -78.69725640130814
+        ],
+        "10_min_distance_to_true_location_0": 219.7355126098357,
+        "10_min_distance_to_true_location_1": 15.388959751287235,
+        "10_min_distance_to_true_location_2": 206.2321137325649,
+        "3_min_distance_to_true_location_0": 41.5787628082523,
+        "3_min_distance_to_true_location_1": 234.84692408875046,
+        "3_min_distance_to_true_location_2": 239.98963208392706,
+        "10_min_min_distance_to_true_location": 15.388959751287235,
+        "3_min_min_distance_to_true_location": 41.5787628082523
+    },
+    "2": {
+        "path": "Results_FINAL\\2023-11-09_22_17_54_vehicle_log.txt",
+        "10_min_log": "incomplete",
+        "3_min_log": "incomplete",
+        "10_min_result": [
+            "incomplete",
+            "incomplete"
+        ],
+        "3_min_result": [
+            "incomplete",
+            "incomplete"
+        ],
+        "10_min_distance_to_true_location_0": "incomplete",
+        "10_min_distance_to_true_location_1": "incomplete",
+        "10_min_distance_to_true_location_2": "incomplete",
+        "3_min_distance_to_true_location_0": "incomplete",
+        "3_min_distance_to_true_location_1": "incomplete",
+        "3_min_distance_to_true_location_2": "incomplete",
+        "10_min_min_distance_to_true_location": "incomplete",
+        "3_min_min_distance_to_true_location": "incomplete"
+    },
+    "3": {
+        "path": "Results_FINAL\\2023-11-09_22_26_51_vehicle_log.txt",
+        "10_min_log": "[2023-11-09 22:36:55.039438] Refined reported position: {\"lat\": 35.72994414889423, \"lon\": -78.69728299592748, \"alt\": 0}",
+        "3_min_log": "[2023-11-09 22:29:55.751400] Refined reported position: {\"lat\": 35.72829253171931, \"lon\": -78.69683991475975, \"alt\": 0}",
+        "10_min_result": [
+            35.72994414889423,
+            -78.69728299592748
+        ],
+        "3_min_result": [
+            35.72829253171931,
+            -78.69683991475975
+        ],
+        "10_min_distance_to_true_location_0": 208.59697196768101,
+        "10_min_distance_to_true_location_1": 194.31114363161547,
+        "10_min_distance_to_true_location_2": 18.70736026296493,
+        "3_min_distance_to_true_location_0": 48.787193528643485,
+        "3_min_distance_to_true_location_1": 230.26532441489002,
+        "3_min_distance_to_true_location_2": 174.92257161222022,
+        "10_min_min_distance_to_true_location": 18.70736026296493,
+        "3_min_min_distance_to_true_location": 48.787193528643485
+    },
+    "4": {
+        "path": "Results_FINAL\\2023-12-04_14_45_44_vehicle_log.txt",
+        "10_min_log": "[2023-12-04 14:55:50.997181] Refined reported position: {\"lat\": 35.72855406912512, \"lon\": -78.69749511007875, \"alt\": 0}",
+        "3_min_log": "[2023-12-04 14:48:51.794891] Refined reported position: {\"lat\": 35.72842261697826, \"lon\": -78.69665002283071, \"alt\": 0}",
+        "10_min_result": [
+            35.72855406912512,
+            -78.69749511007875
+        ],
+        "3_min_result": [
+            35.72842261697826,
+            -78.69665002283071
+        ],
+        "10_min_distance_to_true_location_0": 56.79600266398912,
+        "10_min_distance_to_true_location_1": 164.5040920820082,
+        "10_min_distance_to_true_location_2": 148.28052583353417,
+        "3_min_distance_to_true_location_0": 71.00126436995774,
+        "3_min_distance_to_true_location_1": 241.0589127323873,
+        "3_min_distance_to_true_location_2": 164.09491397860253,
+        "10_min_min_distance_to_true_location": 56.79600266398912,
+        "3_min_min_distance_to_true_location": 71.00126436995774
+    },
+    "5": {
+        "path": "Results_FINAL\\2023-12-13_12_31_07_vehicle_log.txt",
+        "10_min_log": "incomplete",
+        "3_min_log": "incomplete",
+        "10_min_result": [
+            "incomplete",
+            "incomplete"
+        ],
+        "3_min_result": [
+            "incomplete",
+            "incomplete"
+        ],
+        "10_min_distance_to_true_location_0": "incomplete",
+        "10_min_distance_to_true_location_1": "incomplete",
+        "10_min_distance_to_true_location_2": "incomplete",
+        "3_min_distance_to_true_location_0": "incomplete",
+        "3_min_distance_to_true_location_1": "incomplete",
+        "3_min_distance_to_true_location_2": "incomplete",
+        "10_min_min_distance_to_true_location": "incomplete",
+        "3_min_min_distance_to_true_location": "incomplete"
+    },
+    "6": {
+        "path": "Results_FINAL\\2023-12-13_12_33_02_vehicle_log.txt",
+        "10_min_log": "[2023-12-13 12:43:08.406229] Refined reported position: {\"lat\": 35.72782176438887, \"lon\": -78.69702206493466, \"alt\": 0}",
+        "3_min_log": "[2023-12-13 12:36:08.373198] Refined reported position: {\"lat\": 35.72774723468549, \"lon\": -78.69712980668878, \"alt\": 0}",
+        "10_min_result": [
+            35.72782176438887,
+            -78.69702206493466
+        ],
+        "3_min_result": [
+            35.72774723468549,
+            -78.69712980668878
+        ],
+        "10_min_distance_to_true_location_0": 37.28256424974288,
+        "10_min_distance_to_true_location_1": 242.24558142920367,
+        "10_min_distance_to_true_location_2": 225.67079209776875,
+        "3_min_distance_to_true_location_0": 38.86196575085944,
+        "3_min_distance_to_true_location_1": 239.67733033094487,
+        "3_min_distance_to_true_location_2": 233.8201988030393,
+        "10_min_min_distance_to_true_location": 37.28256424974288,
+        "3_min_min_distance_to_true_location": 38.86196575085944
+    },
+    "7": {
+        "path": "Results_FINAL\\2023-12-13_14_28_47_vehicle_log.txt",
+        "10_min_log": "[2023-12-13 14:38:52.275401] Refined reported position: {\"lat\": 35.729099366158955, \"lon\": -78.69893209533609, \"alt\": 0}",
+        "3_min_log": "[2023-12-13 14:31:53.192611] Refined reported position: {\"lat\": 35.72811338705361, \"lon\": -78.69728299592748, \"alt\": 0}",
+        "10_min_result": [
+            35.729099366158955,
+            -78.69893209533609
+        ],
+        "3_min_result": [
+            35.72811338705361,
+            -78.69728299592748
+        ],
+        "10_min_distance_to_true_location_0": 186.36123941493153,
+        "10_min_distance_to_true_location_1": 22.571970588579976,
+        "10_min_distance_to_true_location_2": 184.38786086441667,
+        "3_min_distance_to_true_location_0": 5.4819743650497665,
+        "3_min_distance_to_true_location_1": 204.40807274163078,
+        "3_min_distance_to_true_location_2": 193.75403275784973,
+        "10_min_min_distance_to_true_location": 22.571970588579976,
+        "3_min_min_distance_to_true_location": 5.4819743650497665
+    },
+    "8": {
+        "path": "Results_FINAL\\2023-12-13_16_15_36_vehicle_log.txt",
+        "10_min_log": "[2023-12-13 16:25:41.896457] Refined reported position: {\"lat\": 35.72868876934638, \"lon\": -78.6969665093791, \"alt\": 0}",
+        "3_min_log": "[2023-12-13 16:18:42.138170] Refined reported position: {\"lat\": 35.72779492720433, \"lon\": -78.69675002283071, \"alt\": 0}",
+        "10_min_result": [
+            35.72868876934638,
+            -78.6969665093791
+        ],
+        "3_min_result": [
+            35.72779492720433,
+            -78.69675002283071
+        ],
+        "10_min_distance_to_true_location_0": 75.49457111791438,
+        "10_min_distance_to_true_location_1": 205.40414110373024,
+        "10_min_distance_to_true_location_2": 129.83230129787904,
+        "3_min_distance_to_true_location_0": 58.412537774806,
+        "3_min_distance_to_true_location_1": 264.03324331976546,
+        "3_min_distance_to_true_location_2": 230.80965260220603,
+        "10_min_min_distance_to_true_location": 75.49457111791438,
+        "3_min_min_distance_to_true_location": 58.412537774806
+    }
+}

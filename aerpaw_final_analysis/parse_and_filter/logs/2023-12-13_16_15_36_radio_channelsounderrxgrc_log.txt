@@ -1,0 +1,31 @@
+[2023-12-13 16:15:37.054810] [INFO] [UHD] linux; GNU C++ version 11.4.0; Boost_107400; UHD_4.3.0.v1.1.0-0-607a38fa
+[2023-12-13 16:15:37.888261] [INFO] [CONFIG] PARSED THE CONFIG FILE
+[2023-12-13 16:15:37.901503] [INFO] [B200] Detected Device: B205mini
+[2023-12-13 16:15:37.969551] [INFO] [B200] Loading FPGA image: /usr/local/share/uhd/images/usrp_b205mini_fpga.bin...
+[2023-12-13 16:15:46.177684] [INFO] [B200] Operating over USB 3.
+[2023-12-13 16:15:46.199701] [INFO] [B200] Initialize CODEC control...
+[2023-12-13 16:15:46.472225] [INFO] [B200] Initialize Radio control...
+[2023-12-13 16:15:46.501735] [INFO] [B200] Performing register loopback test... 
+[2023-12-13 16:15:46.507915] [INFO] [B200] Register loopback test passed
+[2023-12-13 16:15:46.521073] [INFO] [B200] Setting master clock rate selection to 'automatic'.
+[2023-12-13 16:15:46.521096] [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+[2023-12-13 16:15:46.842671] [INFO] [B200] Actually got clock rate 16.000000 MHz.
+[2023-12-13 16:15:47.211508] [INFO] [B200] Asking for clock rate 32.000000 MHz... 
+[2023-12-13 16:15:47.410947] [INFO] [B200] Actually got clock rate 32.000000 MHz.
+[2023-12-13 16:15:47.511849] [INFO] [MULTI_USRP]     1) catch time transition at pps edge
+[2023-12-13 16:15:48.090077] [INFO] [MULTI_USRP]     2) set times next pps (synchronously)
+[2023-12-13 16:15:49.114142] /usr/local/lib/python3/dist-packages/gnuradio/gr/gateway.py:109: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+[2023-12-13 16:15:49.114177]   self.__types = tuple( numpy.dtype(t) for t in type_list )
+[2023-12-13 16:15:49.130353] gr::buffer::allocate_buffer: warning: tried to allocate
+[2023-12-13 16:15:49.130369]    4 items of size 32760. Due to alignment requirements
+[2023-12-13 16:15:49.130373]    512 were allocated.  If this isn't OK, consider padding
+[2023-12-13 16:15:49.130377]    your structure to a power-of-two bytes.
+[2023-12-13 16:15:49.130380]    On this platform, our allocation granularity is 4096 bytes.
+[2023-12-13 16:15:49.130556] gr::buffer::allocate_buffer: warning: tried to allocate
+[2023-12-13 16:15:49.130577]    4 items of size 32760. Due to alignment requirements
+[2023-12-13 16:15:49.130585]    512 were allocated.  If this isn't OK, consider padding
+[2023-12-13 16:15:49.130593]    your structure to a power-of-two bytes.
+[2023-12-13 16:15:49.130598]    On this platform, our allocation granularity is 4096 bytes.
+[2023-12-13 16:15:49.133494] ===IMPORTS LOADED===
+[2023-12-13 16:27:18.991641] Press Enter to quit: Traceback (most recent call last):
+[2023-12-13 16:27:18.991693]   File "/root/AERPAW-Dev/AHN/E-VM/Profile_software/SDR_control/Channel_Sounderv3/CSRX_noGUI.py", line 236, in <module>

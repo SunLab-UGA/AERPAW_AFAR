@@ -1,0 +1,25 @@
+[2023-11-09 22:17:55.189475] [INFO] [UHD] linux; GNU C++ version 11.4.0; Boost_107400; UHD_4.3.0.v1.1.0-0-607a38fa
+[2023-11-09 22:17:56.396063] [INFO] [CONFIG] PARSED THE CONFIG FILE
+[2023-11-09 22:17:56.397126] [INFO] [MULTI_USRP] Selecting default RX front end spec: Subdevice Specification:
+[2023-11-09 22:17:56.397145]     Channel 0: Daughterboard A, Subdevice 0
+[2023-11-09 22:17:56.397151] 
+[2023-11-09 22:17:56.398711] [INFO] [VUSRP-RX]  Sample Rate is set to 2e+06 Sps
+[2023-11-09 22:17:56.398750] [INFO] [MULTI_USRP]     1) catch time transition at pps edge
+[2023-11-09 22:17:56.398763] [INFO] [PPS] PPS Requested
+[2023-11-09 22:17:56.398771] [INFO] [PPS] PPS Requested
+[2023-11-09 22:17:56.398775] [INFO] [MULTI_USRP]     2) set times next pps (synchronously)
+[2023-11-09 22:17:56.398780] [INFO] [TIME] Time is set
+[2023-11-09 22:17:57.404767] /usr/local/lib/python3/dist-packages/gnuradio/gr/gateway.py:109: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+[2023-11-09 22:17:57.404835]   self.__types = tuple( numpy.dtype(t) for t in type_list )
+[2023-11-09 22:17:57.407283] gr::buffer::allocate_buffer: warning: tried to allocate
+[2023-11-09 22:17:57.407305]    4 items of size 32760. Due to alignment requirements
+[2023-11-09 22:17:57.407311]    512 were allocated.  If this isn't OK, consider padding
+[2023-11-09 22:17:57.407315]    your structure to a power-of-two bytes.
+[2023-11-09 22:17:57.407319]    On this platform, our allocation granularity is 4096 bytes.
+[2023-11-09 22:17:57.407518] gr::buffer::allocate_buffer: warning: tried to allocate
+[2023-11-09 22:17:57.407535]    4 items of size 32760. Due to alignment requirements
+[2023-11-09 22:17:57.407543]    512 were allocated.  If this isn't OK, consider padding
+[2023-11-09 22:17:57.407551]    your structure to a power-of-two bytes.
+[2023-11-09 22:17:57.407575]    On this platform, our allocation granularity is 4096 bytes.
+[2023-11-09 22:17:57.410175] [INFO] [PORT-RX]  Port is updated to 11003
+[2023-11-09 22:17:57.413391] ===IMPORTS LOADED===

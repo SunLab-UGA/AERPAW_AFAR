@@ -1,0 +1,29 @@
+[2023-12-13 14:28:47.643121] [INFO] [UHD] linux; GNU C++ version 11.4.0; Boost_107400; UHD_4.3.0.v1.1.0-0-607a38fa
+[2023-12-13 14:28:48.572463] [INFO] [CONFIG] PARSED THE CONFIG FILE
+[2023-12-13 14:28:48.585592] [INFO] [B200] Detected Device: B205mini
+[2023-12-13 14:28:48.664482] [INFO] [B200] Operating over USB 3.
+[2023-12-13 14:28:48.686416] [INFO] [B200] Initialize CODEC control...
+[2023-12-13 14:28:48.954242] [INFO] [B200] Initialize Radio control...
+[2023-12-13 14:28:48.984278] [INFO] [B200] Performing register loopback test... 
+[2023-12-13 14:28:48.990325] [INFO] [B200] Register loopback test passed
+[2023-12-13 14:28:49.003137] [INFO] [B200] Setting master clock rate selection to 'automatic'.
+[2023-12-13 14:28:49.003162] [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+[2023-12-13 14:28:49.328838] [INFO] [B200] Actually got clock rate 16.000000 MHz.
+[2023-12-13 14:28:49.697247] [INFO] [B200] Asking for clock rate 32.000000 MHz... 
+[2023-12-13 14:28:49.895389] [INFO] [B200] Actually got clock rate 32.000000 MHz.
+[2023-12-13 14:28:49.996199] [INFO] [MULTI_USRP]     1) catch time transition at pps edge
+[2023-12-13 14:28:50.875975] [INFO] [MULTI_USRP]     2) set times next pps (synchronously)
+[2023-12-13 14:28:51.896721] /usr/local/lib/python3/dist-packages/gnuradio/gr/gateway.py:109: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+[2023-12-13 14:28:51.896758]   self.__types = tuple( numpy.dtype(t) for t in type_list )
+[2023-12-13 14:28:51.913234] gr::buffer::allocate_buffer: warning: tried to allocate
+[2023-12-13 14:28:51.913251]    4 items of size 32760. Due to alignment requirements
+[2023-12-13 14:28:51.913256]    512 were allocated.  If this isn't OK, consider padding
+[2023-12-13 14:28:51.913259]    your structure to a power-of-two bytes.
+[2023-12-13 14:28:51.913263]    On this platform, our allocation granularity is 4096 bytes.
+[2023-12-13 14:28:51.913381] gr::buffer::allocate_buffer: warning: tried to allocate
+[2023-12-13 14:28:51.913396]    4 items of size 32760. Due to alignment requirements
+[2023-12-13 14:28:51.913401]    512 were allocated.  If this isn't OK, consider padding
+[2023-12-13 14:28:51.913406]    your structure to a power-of-two bytes.
+[2023-12-13 14:28:51.913411]    On this platform, our allocation granularity is 4096 bytes.
+[2023-12-13 14:28:51.915805] ===IMPORTS LOADED===
+[2023-12-13 14:40:59.835567] Press Enter to quit: OOOOTraceback (most recent call last):

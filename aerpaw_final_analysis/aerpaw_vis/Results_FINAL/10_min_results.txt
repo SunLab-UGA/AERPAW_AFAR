@@ -1,0 +1,9 @@
+[2023-11-09 19:37:34.711683] Refined reported position: {"lat": 35.727694927204325, "lon": -78.69700321206942, "alt": 0}
+[2023-11-09 21:13:40.153560] Refined reported position: {"lat": 35.72923731445461, "lon": -78.69926743474971, "alt": 0}
+incomplete
+[2023-11-09 22:36:55.039438] Refined reported position: {"lat": 35.72994414889423, "lon": -78.69728299592748, "alt": 0}
+[2023-12-04 14:55:50.997181] Refined reported position: {"lat": 35.72855406912512, "lon": -78.69749511007875, "alt": 0}
+incomplete
+[2023-12-13 12:43:08.406229] Refined reported position: {"lat": 35.72782176438887, "lon": -78.69702206493466, "alt": 0}
+[2023-12-13 14:38:52.275401] Refined reported position: {"lat": 35.729099366158955, "lon": -78.69893209533609, "alt": 0}
+[2023-12-13 16:25:41.896457] Refined reported position: {"lat": 35.72868876934638, "lon": -78.6969665093791, "alt": 0}

@@ -1,0 +1,1100 @@
+[2023-12-13 14:28:47.463696] Starting rover search script
+[2023-12-13 14:28:47.464885] Loading other libraries
+[2023-12-13 14:28:48.034096] Imported init.py
+[2023-12-13 14:28:48.034748] Imported data_manager.py
+[2023-12-13 14:28:48.035132] Imported GP.py
+[2023-12-13 14:28:51.199727] Initializing rover search script (at_init)
+[2023-12-13 14:28:51.199767] rover_search PID IS:  92
+[2023-12-13 14:28:51.203959] Data Manager started
+[2023-12-13 14:28:51.203977] Data Manager spawned a process with PID: 158
+[2023-12-13 14:28:51.204085] GP LINESPACE RESOLUTION
+[2023-12-13 14:28:51.204106] UGV grid resolution: 50
+[2023-12-13 14:28:51.204116] UAV grid resolution: 50
+[2023-12-13 14:28:51.204204] Current time is 14:28:51
+[2023-12-13 14:28:51.204223] Done initializing rover search script (at_init)
+[2023-12-13 14:28:51.206253] Data Manager worker started
+[2023-12-13 14:28:52.204865] start time marked @ 2023-12-13 14:28:52.204812
+[2023-12-13 14:28:52.204953] Home location is {"lat": 35.7273707, "lon": -78.6962175, "alt": -0.402}
+[2023-12-13 14:28:52.204964] Taking off... (after arm command) to 40 meters
+[2023-12-13 14:28:52.204974] [aerpawlib] Guided command attempted. Waiting for safety pilot to arm
+[2023-12-13 14:29:29.329374] "mission" start @ 14:28:52204812
+[2023-12-13 14:29:29.329399] marked takeoff complete: @ 14:29:29329378
+[2023-12-13 14:29:29.329410] Takeoff took 0:00:37.124582 seconds
+[2023-12-13 14:29:30.656775] Taking measurements @ 14:29:30:656739
+[2023-12-13 14:29:31.167233] Taking measurements @ 14:29:31:167194
+[2023-12-13 14:29:31.677928] Taking measurements @ 14:29:31:677851
+[2023-12-13 14:29:32.188539] Taking measurements @ 14:29:32:188467
+[2023-12-13 14:29:32.700070] Taking measurements @ 14:29:32:700034
+[2023-12-13 14:29:33.211072] Taking measurements @ 14:29:33:210998
+[2023-12-13 14:29:33.722030] Taking measurements @ 14:29:33:721994
+[2023-12-13 14:29:34.233321] Taking measurements @ 14:29:34:233285
+[2023-12-13 14:29:34.744588] Taking measurements @ 14:29:34:744521
+[2023-12-13 14:29:35.255645] Taking measurements @ 14:29:35:255609
+[2023-12-13 14:29:35.766277] Taking measurements @ 14:29:35:766210
+[2023-12-13 14:29:36.277521] Taking measurements @ 14:29:36:277484
+[2023-12-13 14:29:36.799183] Filtered data (avg): Pwr:-32.65473556518555,P_Var:15.085670471191406, Qual:41.68170928955078, Q_Var:27.803918838500977, {"lat": 35.7273709453552, "lon": -78.69621957322404, "alt": 40.04224590163934}, heading:312.2021857923497
+[2023-12-13 14:29:36.799214] New highest power measurement: -32.65473556518555 @ {"lat": 35.7273709453552, "lon": -78.69621957322404, "alt": 40.04224590163934}
+[2023-12-13 14:29:36.799222] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:29:36.799228] ++Dropped measurements: 1++
+[2023-12-13 14:29:36.799234] FAILED TO GET A CRITICAL START MEASUREMENT, is the TX on?
+[2023-12-13 14:29:36.799241] Increased quality varience cuttoff to 7
+[2023-12-13 14:29:36.809567] Taking measurements @ 14:29:36:809541
+[2023-12-13 14:29:37.320503] Taking measurements @ 14:29:37:320465
+[2023-12-13 14:29:37.831666] Taking measurements @ 14:29:37:831630
+[2023-12-13 14:29:38.343850] Taking measurements @ 14:29:38:343811
+[2023-12-13 14:29:38.854811] Taking measurements @ 14:29:38:854730
+[2023-12-13 14:29:39.365144] Taking measurements @ 14:29:39:365069
+[2023-12-13 14:29:39.875489] Taking measurements @ 14:29:39:875405
+[2023-12-13 14:29:40.386683] Taking measurements @ 14:29:40:386616
+[2023-12-13 14:29:40.897777] Taking measurements @ 14:29:40:897742
+[2023-12-13 14:29:41.409897] Taking measurements @ 14:29:41:409862
+[2023-12-13 14:29:41.920513] Taking measurements @ 14:29:41:920440
+[2023-12-13 14:29:42.430845] Taking measurements @ 14:29:42:430775
+[2023-12-13 14:29:42.952635] Filtered data (avg): Pwr:-32.27964782714844,P_Var:5.58644962310791, Qual:41.3489990234375, Q_Var:31.6091365814209, {"lat": 35.72737107135136, "lon": -78.69622016810811, "alt": 40.024454054054054}, heading:314.2756756756757
+[2023-12-13 14:29:42.952660] New highest power measurement: -32.27964782714844 @ {"lat": 35.72737107135136, "lon": -78.69622016810811, "alt": 40.024454054054054}
+[2023-12-13 14:29:42.952666] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:29:42.952669] ++Dropped measurements: 2++
+[2023-12-13 14:29:42.952673] FAILED TO GET A CRITICAL START MEASUREMENT, is the TX on?
+[2023-12-13 14:29:42.952676] Increased quality varience cuttoff to 11
+[2023-12-13 14:29:42.962856] Taking measurements @ 14:29:42:962790
+[2023-12-13 14:29:43.473530] Taking measurements @ 14:29:43:473458
+[2023-12-13 14:29:43.985614] Taking measurements @ 14:29:43:985540
+[2023-12-13 14:29:44.496717] Taking measurements @ 14:29:44:496681
+[2023-12-13 14:29:45.007383] Taking measurements @ 14:29:45:007348
+[2023-12-13 14:29:45.518723] Taking measurements @ 14:29:45:518685
+[2023-12-13 14:29:46.029204] Taking measurements @ 14:29:46:029161
+[2023-12-13 14:29:46.541491] Taking measurements @ 14:29:46:541451
+[2023-12-13 14:29:47.052353] Taking measurements @ 14:29:47:052314
+[2023-12-13 14:29:47.563481] Taking measurements @ 14:29:47:563442
+[2023-12-13 14:29:48.074537] Taking measurements @ 14:29:48:074498
+[2023-12-13 14:29:48.585036] Taking measurements @ 14:29:48:585001
+[2023-12-13 14:29:49.107713] Filtered data (avg): Pwr:-32.8471565246582,P_Var:4.93205451965332, Qual:42.02626037597656, Q_Var:26.406469345092773, {"lat": 35.72737089505495, "lon": -78.69621997747252, "alt": 40.05853846153846}, heading:314.53846153846155
+[2023-12-13 14:29:49.107739] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:29:49.107744] ++Dropped measurements: 3++
+[2023-12-13 14:29:49.107748] FAILED TO GET A CRITICAL START MEASUREMENT, is the TX on?
+[2023-12-13 14:29:49.107752] Increased quality varience cuttoff to 19
+[2023-12-13 14:29:49.117927] Taking measurements @ 14:29:49:117903
+[2023-12-13 14:29:49.628816] Taking measurements @ 14:29:49:628777
+[2023-12-13 14:29:50.139207] Taking measurements @ 14:29:50:139172
+[2023-12-13 14:29:50.651149] Taking measurements @ 14:29:50:651114
+[2023-12-13 14:29:51.162788] Taking measurements @ 14:29:51:162753
+[2023-12-13 14:29:51.673303] Taking measurements @ 14:29:51:673228
+[2023-12-13 14:29:52.184554] Taking measurements @ 14:29:52:184519
+[2023-12-13 14:29:52.695477] Taking measurements @ 14:29:52:695405
+[2023-12-13 14:29:53.206521] Taking measurements @ 14:29:53:206486
+[2023-12-13 14:29:53.717486] Taking measurements @ 14:29:53:717450
+[2023-12-13 14:29:54.228584] Taking measurements @ 14:29:54:228549
+[2023-12-13 14:29:54.739555] Taking measurements @ 14:29:54:739521
+[2023-12-13 14:29:55.261451] Filtered data (avg): Pwr:-35.76293182373047,P_Var:6.8602614402771, Qual:43.011383056640625, Q_Var:42.409095764160156, {"lat": 35.72737087923497, "lon": -78.69621997650273, "alt": 40.08427322404371}, heading:314.44262295081967
+[2023-12-13 14:29:55.261478] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:29:55.261484] ++Dropped measurements: 4++
+[2023-12-13 14:29:55.261487] FAILED TO GET A CRITICAL START MEASUREMENT, is the TX on?
+[2023-12-13 14:29:55.261491] Increased quality varience cuttoff to 35
+[2023-12-13 14:29:55.271861] Taking measurements @ 14:29:55:271836
+[2023-12-13 14:29:55.782927] Taking measurements @ 14:29:55:782890
+[2023-12-13 14:29:56.293980] Taking measurements @ 14:29:56:293908
+[2023-12-13 14:29:56.804850] Taking measurements @ 14:29:56:804812
+[2023-12-13 14:29:57.315272] Taking measurements @ 14:29:57:315234
+[2023-12-13 14:29:57.825789] Taking measurements @ 14:29:57:825753
+[2023-12-13 14:29:58.337021] Taking measurements @ 14:29:58:336965
+[2023-12-13 14:29:58.848018] Taking measurements @ 14:29:58:847950
+[2023-12-13 14:29:59.359073] Taking measurements @ 14:29:59:359036
+[2023-12-13 14:29:59.870438] Taking measurements @ 14:29:59:870402
+[2023-12-13 14:30:00.381857] Taking measurements @ 14:30:00:381821
+[2023-12-13 14:30:00.893198] Taking measurements @ 14:30:00:893125
+[2023-12-13 14:30:01.415124] Filtered data (avg): Pwr:-35.71525573730469,P_Var:6.034298896789551, Qual:42.053260803222656, Q_Var:38.31281661987305, {"lat": 35.72737078486487, "lon": -78.69621992162162, "alt": 40.03635675675676}, heading:314.2918918918919
+[2023-12-13 14:30:01.415153] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:30:01.415158] ++Dropped measurements: 5++
+[2023-12-13 14:30:01.415162] FAILED TO GET A CRITICAL START MEASUREMENT, is the TX on?
+[2023-12-13 14:30:01.415166] Increased quality varience cuttoff to 67
+[2023-12-13 14:30:01.425295] Taking measurements @ 14:30:01:425268
+[2023-12-13 14:30:01.936607] Taking measurements @ 14:30:01:936534
+[2023-12-13 14:30:02.447597] Taking measurements @ 14:30:02:447562
+[2023-12-13 14:30:02.958574] Taking measurements @ 14:30:02:958501
+[2023-12-13 14:30:03.469362] Taking measurements @ 14:30:03:469290
+[2023-12-13 14:30:03.980315] Taking measurements @ 14:30:03:980277
+[2023-12-13 14:30:04.491076] Taking measurements @ 14:30:04:491037
+[2023-12-13 14:30:05.002190] Taking measurements @ 14:30:05:002107
+[2023-12-13 14:30:05.513487] Taking measurements @ 14:30:05:513407
+[2023-12-13 14:30:06.024385] Taking measurements @ 14:30:06:024307
+[2023-12-13 14:30:06.535560] Taking measurements @ 14:30:06:535519
+[2023-12-13 14:30:07.046922] Taking measurements @ 14:30:07:046846
+[2023-12-13 14:30:07.568177] Filtered data (avg): Pwr:-38.9853401184082,P_Var:14.331262588500977, Qual:41.67824172973633, Q_Var:38.47895812988281, {"lat": 35.72737085683059, "lon": -78.6962197759563, "alt": 40.032972677595616}, heading:314.8415300546448
+[2023-12-13 14:30:07.806706] GP optimizer epsilon: 0.5
+[2023-12-13 14:30:07.806769] GP marginal likelihood: -3.8181656352329822
+[2023-12-13 14:30:07.806844] ===GP refined prediction: {"lat": 35.72779492720433, "lon": -78.69675002283071, "alt": 0}===
+[2023-12-13 14:30:07.806905] Distance from vehicle to prediction: 78.22473212596142
+[2023-12-13 14:30:07.808578] Saved GP data to gp.pickle
+[2023-12-13 14:30:07.808674] Number of (Q_var) valid measurements: 1
+[2023-12-13 14:30:07.833104] 6 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:30:07.833674] Saved DM data to m_data.pickle
+[2023-12-13 14:30:07.844309] Moving to next waypoint: {"lat": 35.727753, "lon": -78.696723, "alt": 40}
+[2023-12-13 14:30:07.844353] There are now 2 waypoints left in any precomputed route
+[2023-12-13 14:30:07.844569] Command to waypoint issued
+[2023-12-13 14:30:25.093822] Command to turn issued
+[2023-12-13 14:30:25.205070] Taking measurements @ 14:30:25:204986
+[2023-12-13 14:30:25.716263] Taking measurements @ 14:30:25:716225
+[2023-12-13 14:30:26.227170] Taking measurements @ 14:30:26:227097
+[2023-12-13 14:30:26.737842] Taking measurements @ 14:30:26:737806
+[2023-12-13 14:30:27.248897] Taking measurements @ 14:30:27:248822
+[2023-12-13 14:30:27.760081] Taking measurements @ 14:30:27:760006
+[2023-12-13 14:30:28.270365] Taking measurements @ 14:30:28:270290
+[2023-12-13 14:30:28.780725] Taking measurements @ 14:30:28:780690
+[2023-12-13 14:30:29.293142] Taking measurements @ 14:30:29:293052
+[2023-12-13 14:30:29.803408] Taking measurements @ 14:30:29:803336
+[2023-12-13 14:30:30.313882] Taking measurements @ 14:30:30:313808
+[2023-12-13 14:30:30.825120] Taking measurements @ 14:30:30:825035
+[2023-12-13 14:30:31.346537] Filtered data (avg): Pwr:-26.884429931640625,P_Var:19.731618881225586, Qual:43.382957458496094, Q_Var:30.176362991333008, {"lat": 35.72775173442623, "lon": -78.6967215934426, "alt": 39.8860601092896}, heading:314.2841530054645
+[2023-12-13 14:30:31.346568] New highest power measurement: -26.884429931640625 @ {"lat": 35.72775173442623, "lon": -78.6967215934426, "alt": 39.8860601092896}
+[2023-12-13 14:30:31.733630] GP optimizer epsilon: 0.25
+[2023-12-13 14:30:31.733693] GP marginal likelihood: -8.168194058038818
+[2023-12-13 14:30:31.733766] ===GP refined prediction: {"lat": 35.727694927204325, "lon": -78.69665002283071, "alt": 0}===
+[2023-12-13 14:30:31.733823] Distance from vehicle to prediction: 41.05042202021348
+[2023-12-13 14:30:31.734742] Saved GP data to gp.pickle
+[2023-12-13 14:30:31.734787] Number of (Q_var) valid measurements: 2
+[2023-12-13 14:30:31.755690] 7 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:30:31.756122] Saved DM data to m_data.pickle
+[2023-12-13 14:30:31.766921] Moving to next waypoint: {"lat": 35.727764, "lon": -78.697129, "alt": 40}
+[2023-12-13 14:30:31.766964] There are now 1 waypoints left in any precomputed route
+[2023-12-13 14:30:31.767031] Command to waypoint issued
+[2023-12-13 14:30:43.347363] Command to turn issued
+[2023-12-13 14:30:43.458268] Taking measurements @ 14:30:43:458197
+[2023-12-13 14:30:43.968971] Taking measurements @ 14:30:43:968938
+[2023-12-13 14:30:44.479280] Taking measurements @ 14:30:44:479246
+[2023-12-13 14:30:44.989903] Taking measurements @ 14:30:44:989824
+[2023-12-13 14:30:45.500424] Taking measurements @ 14:30:45:500349
+[2023-12-13 14:30:46.011618] Taking measurements @ 14:30:46:011544
+[2023-12-13 14:30:46.523251] Taking measurements @ 14:30:46:523213
+[2023-12-13 14:30:47.034974] Taking measurements @ 14:30:47:034888
+[2023-12-13 14:30:47.545941] Taking measurements @ 14:30:47:545906
+[2023-12-13 14:30:48.057426] Taking measurements @ 14:30:48:057388
+[2023-12-13 14:30:48.569000] Taking measurements @ 14:30:48:568926
+[2023-12-13 14:30:49.080725] Taking measurements @ 14:30:49:080660
+[2023-12-13 14:30:49.603830] Filtered data (avg): Pwr:-35.95274353027344,P_Var:39.11088562011719, Qual:42.27873229980469, Q_Var:36.747589111328125, {"lat": 35.72776228763441, "lon": -78.69712324247313, "alt": 39.876612903225805}, heading:314.7795698924731
+[2023-12-13 14:30:50.017537] GP optimizer epsilon: 0.125
+[2023-12-13 14:30:50.017624] GP marginal likelihood: -11.300952687218683
+[2023-12-13 14:30:50.017711] ===GP refined prediction: {"lat": 35.727694927204325, "lon": -78.69677661745007, "alt": 0}===
+[2023-12-13 14:30:50.017783] Distance from vehicle to prediction: 51.46253833907212
+[2023-12-13 14:30:50.018939] Saved GP data to gp.pickle
+[2023-12-13 14:30:50.018997] Number of (Q_var) valid measurements: 3
+[2023-12-13 14:30:50.041448] 8 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:30:50.042045] Saved DM data to m_data.pickle
+[2023-12-13 14:30:50.052571] Moving to next waypoint: {"lat": 35.728132, "lon": -78.696719, "alt": 40}
+[2023-12-13 14:30:50.052635] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:30:50.052794] Command to waypoint issued
+[2023-12-13 14:31:05.891678] Command to turn issued
+[2023-12-13 14:31:06.002645] Taking measurements @ 14:31:06:002609
+[2023-12-13 14:31:06.513691] Taking measurements @ 14:31:06:513658
+[2023-12-13 14:31:07.025413] Taking measurements @ 14:31:07:025358
+[2023-12-13 14:31:07.536245] Taking measurements @ 14:31:07:536211
+[2023-12-13 14:31:08.048362] Taking measurements @ 14:31:08:048269
+[2023-12-13 14:31:08.558836] Taking measurements @ 14:31:08:558761
+[2023-12-13 14:31:09.070202] Taking measurements @ 14:31:09:070148
+[2023-12-13 14:31:09.580710] Taking measurements @ 14:31:09:580634
+[2023-12-13 14:31:10.091075] Taking measurements @ 14:31:10:091035
+[2023-12-13 14:31:10.601605] Taking measurements @ 14:31:10:601528
+[2023-12-13 14:31:11.112100] Taking measurements @ 14:31:11:112014
+[2023-12-13 14:31:11.623361] Taking measurements @ 14:31:11:623287
+[2023-12-13 14:31:12.144885] Filtered data (avg): Pwr:-36.565486907958984,P_Var:10.233344078063965, Qual:42.85750198364258, Q_Var:37.985069274902344, {"lat": 35.728130169729724, "lon": -78.69672000756756, "alt": 39.91076216216215}, heading:314.55135135135134
+[2023-12-13 14:31:12.626905] GP optimizer epsilon: 0.0625
+[2023-12-13 14:31:12.626989] GP marginal likelihood: -14.196501542326056
+[2023-12-13 14:31:12.627182] ===GP refined prediction: {"lat": 35.72779954216665, "lon": -78.69677661745007, "alt": 0}===
+[2023-12-13 14:31:12.627333] Distance from vehicle to prediction: 54.61136366336489
+[2023-12-13 14:31:12.630622] Desired waypoint from GP: {"lat": 35.72807143887042, "lon": -78.69730024615205, "alt": 40}
+[2023-12-13 14:31:12.630875] Next waypoint from GP (limited and nudged): {"lat": 35.72809726787427, "lon": -78.69704513923907, "alt": 40}
+[2023-12-13 14:31:12.633697] Saved GP data to gp.pickle
+[2023-12-13 14:31:12.633759] Number of (Q_var) valid measurements: 4
+[2023-12-13 14:31:12.685053] 9 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:31:12.686203] Saved DM data to m_data.pickle
+[2023-12-13 14:31:12.696873] Moving to next waypoint: {"lat": 35.72809726787427, "lon": -78.69704513923907, "alt": 40}
+[2023-12-13 14:31:12.696920] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:31:12.696991] Command to waypoint issued
+[2023-12-13 14:31:22.871899] Command to turn issued
+[2023-12-13 14:31:22.982988] Taking measurements @ 14:31:22:982917
+[2023-12-13 14:31:23.493475] Taking measurements @ 14:31:23:493436
+[2023-12-13 14:31:24.004049] Taking measurements @ 14:31:24:004011
+[2023-12-13 14:31:24.515239] Taking measurements @ 14:31:24:515204
+[2023-12-13 14:31:25.026068] Taking measurements @ 14:31:25:026005
+[2023-12-13 14:31:25.536825] Taking measurements @ 14:31:25:536787
+[2023-12-13 14:31:26.047426] Taking measurements @ 14:31:26:047367
+[2023-12-13 14:31:26.558329] Taking measurements @ 14:31:26:558293
+[2023-12-13 14:31:27.068901] Taking measurements @ 14:31:27:068825
+[2023-12-13 14:31:27.579466] Taking measurements @ 14:31:27:579431
+[2023-12-13 14:31:28.090825] Taking measurements @ 14:31:28:090788
+[2023-12-13 14:31:28.601965] Taking measurements @ 14:31:28:601932
+[2023-12-13 14:31:29.123644] Filtered data (avg): Pwr:-33.891571044921875,P_Var:13.758920669555664, Qual:41.483070373535156, Q_Var:31.538724899291992, {"lat": 35.7280949227027, "lon": -78.69703997621622, "alt": 39.91403783783783}, heading:314.2918918918919
+[2023-12-13 14:31:29.622405] GP optimizer epsilon: 0.03125
+[2023-12-13 14:31:29.622509] GP marginal likelihood: -16.880559548324072
+[2023-12-13 14:31:29.622730] ===GP refined prediction: {"lat": 35.727851849647806, "lon": -78.69690321206942, "alt": 0}===
+[2023-12-13 14:31:29.622875] Distance from vehicle to prediction: 50.01513616277037
+[2023-12-13 14:31:29.627881] Desired waypoint from GP: {"lat": 35.72817054778209, "lon": -78.69743588324422, "alt": 40}
+[2023-12-13 14:31:29.628156] Next waypoint from GP (limited and nudged): {"lat": 35.728157551102576, "lon": -78.69736659791978, "alt": 40}
+[2023-12-13 14:31:29.632943] Saved GP data to gp.pickle
+[2023-12-13 14:31:29.633040] Number of (Q_var) valid measurements: 5
+[2023-12-13 14:31:29.814276] 10 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:31:29.814917] Saved DM data to m_data.pickle
+[2023-12-13 14:31:29.825467] Moving to next waypoint: {"lat": 35.728157551102576, "lon": -78.69736659791978, "alt": 40}
+[2023-12-13 14:31:29.825715] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:31:29.825749] Command to waypoint issued
+[2023-12-13 14:31:40.403973] Command to turn issued
+[2023-12-13 14:31:40.515170] Taking measurements @ 14:31:40:515135
+[2023-12-13 14:31:41.026370] Taking measurements @ 14:31:41:026294
+[2023-12-13 14:31:41.537119] Taking measurements @ 14:31:41:537046
+[2023-12-13 14:31:42.048224] Taking measurements @ 14:31:42:048187
+[2023-12-13 14:31:42.559174] Taking measurements @ 14:31:42:559138
+[2023-12-13 14:31:43.070208] Taking measurements @ 14:31:43:070133
+[2023-12-13 14:31:43.581246] Taking measurements @ 14:31:43:581207
+[2023-12-13 14:31:44.092327] Taking measurements @ 14:31:44:092288
+[2023-12-13 14:31:44.602964] Taking measurements @ 14:31:44:602895
+[2023-12-13 14:31:45.114005] Taking measurements @ 14:31:45:113965
+[2023-12-13 14:31:45.624583] Taking measurements @ 14:31:45:624510
+[2023-12-13 14:31:46.136767] Taking measurements @ 14:31:46:136694
+[2023-12-13 14:31:46.658478] Filtered data (avg): Pwr:-26.407859802246094,P_Var:11.132511138916016, Qual:41.53889846801758, Q_Var:23.796127319335938, {"lat": 35.7281554590164, "lon": -78.69736127759562, "alt": 39.920043715846994}, heading:314.60109289617486
+[2023-12-13 14:31:46.658506] New highest power measurement: -26.407859802246094 @ {"lat": 35.7281554590164, "lon": -78.69736127759562, "alt": 39.920043715846994}
+[2023-12-13 14:31:47.113614] GP optimizer epsilon: 0.015625
+[2023-12-13 14:31:47.113712] GP marginal likelihood: -20.519060222191342
+[2023-12-13 14:31:47.113828] ===GP refined prediction: {"lat": 35.72811338705361, "lon": -78.69728299592748, "alt": 0}===
+[2023-12-13 14:31:47.113922] Distance from vehicle to prediction: 40.92331412150864
+[2023-12-13 14:31:47.117311] Desired waypoint from GP: {"lat": 35.728666092340454, "lon": -78.69852097998155, "alt": 40}
+[2023-12-13 14:31:47.117489] Next waypoint from GP (limited and nudged): {"lat": 35.728285990598025, "lon": -78.6976552443852, "alt": 40}
+[2023-12-13 14:31:47.121199] Saved GP data to gp.pickle
+[2023-12-13 14:31:47.121298] Number of (Q_var) valid measurements: 6
+[2023-12-13 14:31:47.185235] 11 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:31:47.186781] Saved DM data to m_data.pickle
+[2023-12-13 14:31:47.197378] Moving to next waypoint: {"lat": 35.728285990598025, "lon": -78.6976552443852, "alt": 40}
+[2023-12-13 14:31:47.197439] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:31:47.197527] Command to waypoint issued
+[2023-12-13 14:31:53.192571] time now is:  2023-12-13 14:31:53.192540
+[2023-12-13 14:31:53.192597] =====HERE IS THE 3 MIN REPORTED POSITION=====
+[2023-12-13 14:31:53.192611] Refined reported position: {"lat": 35.72811338705361, "lon": -78.69728299592748, "alt": 0}
+[2023-12-13 14:31:57.633522] Command to turn issued
+[2023-12-13 14:31:57.743942] Taking measurements @ 14:31:57:743909
+[2023-12-13 14:31:58.254810] Taking measurements @ 14:31:58:254737
+[2023-12-13 14:31:58.765886] Taking measurements @ 14:31:58:765848
+[2023-12-13 14:31:59.276404] Taking measurements @ 14:31:59:276356
+[2023-12-13 14:31:59.787213] Taking measurements @ 14:31:59:787133
+[2023-12-13 14:32:00.297938] Taking measurements @ 14:32:00:297865
+[2023-12-13 14:32:00.808733] Taking measurements @ 14:32:00:808654
+[2023-12-13 14:32:01.319458] Taking measurements @ 14:32:01:319422
+[2023-12-13 14:32:01.830803] Taking measurements @ 14:32:01:830766
+[2023-12-13 14:32:02.342078] Taking measurements @ 14:32:02:342001
+[2023-12-13 14:32:02.853037] Taking measurements @ 14:32:02:852996
+[2023-12-13 14:32:03.363745] Taking measurements @ 14:32:03:363667
+[2023-12-13 14:32:03.884824] Filtered data (avg): Pwr:-20.430688858032227,P_Var:25.858991622924805, Qual:43.154144287109375, Q_Var:28.506690979003906, {"lat": 35.72828588961748, "lon": -78.69765573551913, "alt": 39.89733333333334}, heading:314.0273224043716
+[2023-12-13 14:32:03.884849] New highest power measurement: -20.430688858032227 @ {"lat": 35.72828588961748, "lon": -78.69765573551913, "alt": 39.89733333333334}
+[2023-12-13 14:32:04.399001] GP optimizer epsilon: 0.0078125
+[2023-12-13 14:32:04.399092] GP marginal likelihood: -24.67330444885949
+[2023-12-13 14:32:04.399216] ===GP refined prediction: {"lat": 35.728374924459416, "lon": -78.69791596902427, "alt": 0}===
+[2023-12-13 14:32:04.399309] Distance from vehicle to prediction: 47.25758899037303
+[2023-12-13 14:32:04.399446] Settle counter: 0
+[2023-12-13 14:32:04.402733] Desired waypoint from GP: {"lat": 35.7288643101638, "lon": -78.69919916544238, "alt": 40}
+[2023-12-13 14:32:04.402913] Next waypoint from GP (limited and nudged): {"lat": 35.72840119543119, "lon": -78.69795842374184, "alt": 40}
+[2023-12-13 14:32:04.407106] Saved GP data to gp.pickle
+[2023-12-13 14:32:04.407170] Number of (Q_var) valid measurements: 7
+[2023-12-13 14:32:04.477166] 12 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:32:04.478876] Saved DM data to m_data.pickle
+[2023-12-13 14:32:04.489415] Moving to next waypoint: {"lat": 35.72840119543119, "lon": -78.69795842374184, "alt": 40}
+[2023-12-13 14:32:04.489462] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:32:04.489532] Command to waypoint issued
+[2023-12-13 14:32:14.903859] Command to turn issued
+[2023-12-13 14:32:15.015088] Taking measurements @ 14:32:15:015053
+[2023-12-13 14:32:15.526166] Taking measurements @ 14:32:15:526088
+[2023-12-13 14:32:16.037937] Taking measurements @ 14:32:16:037860
+[2023-12-13 14:32:16.549024] Taking measurements @ 14:32:16:548952
+[2023-12-13 14:32:17.060369] Taking measurements @ 14:32:17:060283
+[2023-12-13 14:32:17.570620] Taking measurements @ 14:32:17:570584
+[2023-12-13 14:32:18.081552] Taking measurements @ 14:32:18:081516
+[2023-12-13 14:32:18.591832] Taking measurements @ 14:32:18:591796
+[2023-12-13 14:32:19.104080] Taking measurements @ 14:32:19:104004
+[2023-12-13 14:32:19.614641] Taking measurements @ 14:32:19:614605
+[2023-12-13 14:32:20.125906] Taking measurements @ 14:32:20:125830
+[2023-12-13 14:32:20.636621] Taking measurements @ 14:32:20:636586
+[2023-12-13 14:32:21.158305] Filtered data (avg): Pwr:-34.06939697265625,P_Var:22.229841232299805, Qual:41.56687545776367, Q_Var:34.31614303588867, {"lat": 35.72839814153005, "lon": -78.6979567546448, "alt": 39.89174316939891}, heading:314.72677595628414
+[2023-12-13 14:32:21.628293] GP optimizer epsilon: 0.00390625
+[2023-12-13 14:32:21.628376] GP marginal likelihood: -28.141278884595707
+[2023-12-13 14:32:21.628501] ===GP refined prediction: {"lat": 35.728322616978254, "lon": -78.6977893744049, "alt": 0}===
+[2023-12-13 14:32:21.628589] Distance from vehicle to prediction: 43.60064263070819
+[2023-12-13 14:32:21.628663] Settle counter: 1
+[2023-12-13 14:32:21.632047] Desired waypoint from GP: {"lat": 35.7288643101638, "lon": -78.6987244356198, "alt": 40}
+[2023-12-13 14:32:21.632228] Next waypoint from GP (limited and nudged): {"lat": 35.728561396951655, "lon": -78.69822380686479, "alt": 40}
+[2023-12-13 14:32:21.636847] Saved GP data to gp.pickle
+[2023-12-13 14:32:21.636911] Number of (Q_var) valid measurements: 8
+[2023-12-13 14:32:21.714379] 13 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:32:21.716281] Saved DM data to m_data.pickle
+[2023-12-13 14:32:21.726847] Moving to next waypoint: {"lat": 35.728561396951655, "lon": -78.69822380686479, "alt": 40}
+[2023-12-13 14:32:21.726893] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:32:21.726966] Command to waypoint issued
+[2023-12-13 14:32:32.112794] Command to turn issued
+[2023-12-13 14:32:32.224189] Taking measurements @ 14:32:32:224148
+[2023-12-13 14:32:32.734739] Taking measurements @ 14:32:32:734671
+[2023-12-13 14:32:33.245707] Taking measurements @ 14:32:33:245670
+[2023-12-13 14:32:33.756967] Taking measurements @ 14:32:33:756916
+[2023-12-13 14:32:34.268011] Taking measurements @ 14:32:34:267976
+[2023-12-13 14:32:34.778523] Taking measurements @ 14:32:34:778440
+[2023-12-13 14:32:35.289088] Taking measurements @ 14:32:35:288988
+[2023-12-13 14:32:35.800001] Taking measurements @ 14:32:35:799947
+[2023-12-13 14:32:36.311120] Taking measurements @ 14:32:36:311083
+[2023-12-13 14:32:36.821695] Taking measurements @ 14:32:36:821657
+[2023-12-13 14:32:37.332327] Taking measurements @ 14:32:37:332291
+[2023-12-13 14:32:37.843555] Taking measurements @ 14:32:37:843519
+[2023-12-13 14:32:38.364556] Filtered data (avg): Pwr:-13.66627311706543,P_Var:182.81275939941406, Qual:48.556640625, Q_Var:176.397216796875, {"lat": 35.72855763005464, "lon": -78.69822592021858, "alt": 39.868530054644815}, heading:314.78688524590166
+[2023-12-13 14:32:38.364582] New highest power measurement: -13.66627311706543 @ {"lat": 35.72855763005464, "lon": -78.69822592021858, "alt": 39.868530054644815}
+[2023-12-13 14:32:38.364588] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:32:38.364592] ++Dropped measurements: 6++
+[2023-12-13 14:32:38.364595] GP marginal likelihood: -28.141278884595707
+[2023-12-13 14:32:38.364600] ===GP refined prediction: {"lat": 35.728322616978254, "lon": -78.6977893744049, "alt": 0}===
+[2023-12-13 14:32:38.364612] Distance from vehicle to prediction: 62.00563853046373
+[2023-12-13 14:32:38.364617] Settle counter: 2
+[2023-12-13 14:32:38.365536] Desired waypoint from GP: {"lat": 35.7288643101638, "lon": -78.6987244356198, "alt": 40}
+[2023-12-13 14:32:38.365587] Next waypoint from GP (limited and nudged): {"lat": 35.72872198974376, "lon": -78.69849169352716, "alt": 40}
+[2023-12-13 14:32:38.367133] Saved GP data to gp.pickle
+[2023-12-13 14:32:38.367145] Number of (Q_var) valid measurements: 8
+[2023-12-13 14:32:38.390492] 14 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:32:38.391305] Saved DM data to m_data.pickle
+[2023-12-13 14:32:38.401521] Moving to next waypoint: {"lat": 35.72872198974376, "lon": -78.69849169352716, "alt": 40}
+[2023-12-13 14:32:38.401536] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:32:38.401556] Command to waypoint issued
+[2023-12-13 14:32:48.666954] Command to turn issued
+[2023-12-13 14:32:48.777381] Taking measurements @ 14:32:48:777304
+[2023-12-13 14:32:49.288379] Taking measurements @ 14:32:49:288282
+[2023-12-13 14:32:49.799363] Taking measurements @ 14:32:49:799324
+[2023-12-13 14:32:50.310515] Taking measurements @ 14:32:50:310477
+[2023-12-13 14:32:50.822485] Taking measurements @ 14:32:50:822439
+[2023-12-13 14:32:51.333427] Taking measurements @ 14:32:51:333392
+[2023-12-13 14:32:51.843954] Taking measurements @ 14:32:51:843916
+[2023-12-13 14:32:52.355266] Taking measurements @ 14:32:52:355224
+[2023-12-13 14:32:52.865557] Taking measurements @ 14:32:52:865520
+[2023-12-13 14:32:53.377592] Taking measurements @ 14:32:53:377521
+[2023-12-13 14:32:53.888224] Taking measurements @ 14:32:53:888151
+[2023-12-13 14:32:54.398978] Taking measurements @ 14:32:54:398903
+[2023-12-13 14:32:54.920240] Filtered data (avg): Pwr:14.187499046325684,P_Var:39.08970260620117, Qual:71.28587341308594, Q_Var:11.600676536560059, {"lat": 35.728720536756754, "lon": -78.69849413621623, "alt": 39.88906486486487}, heading:315.5189189189189
+[2023-12-13 14:32:54.920269] New highest power measurement: 14.187499046325684 @ {"lat": 35.728720536756754, "lon": -78.69849413621623, "alt": 39.88906486486487}
+[2023-12-13 14:32:55.470565] GP optimizer epsilon: 0.001953125
+[2023-12-13 14:32:55.470684] GP marginal likelihood: -38.2687791157577
+[2023-12-13 14:32:55.470828] ===GP refined prediction: {"lat": 35.72889799927102, "lon": -78.6989287259791, "alt": 0}===
+[2023-12-13 14:32:55.470943] Distance from vehicle to prediction: 59.184672730086845
+[2023-12-13 14:32:55.471094] Settle counter: 0
+[2023-12-13 14:32:55.474327] Desired waypoint from GP: {"lat": 35.72931030026633, "lon": -78.6995382581728, "alt": 40}
+[2023-12-13 14:32:55.474524] Next waypoint from GP (limited and nudged): {"lat": 35.72887666233587, "lon": -78.69876807878754, "alt": 40}
+[2023-12-13 14:32:55.479690] Saved GP data to gp.pickle
+[2023-12-13 14:32:55.479770] Number of (Q_var) valid measurements: 9
+[2023-12-13 14:32:55.638547] 15 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:32:55.639495] Saved DM data to m_data.pickle
+[2023-12-13 14:32:55.650120] Moving to next waypoint: {"lat": 35.72887666233587, "lon": -78.69876807878754, "alt": 40}
+[2023-12-13 14:32:55.650138] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:32:55.650177] Command to waypoint issued
+[2023-12-13 14:33:05.842875] Command to turn issued
+[2023-12-13 14:33:05.953764] Taking measurements @ 14:33:05:953728
+[2023-12-13 14:33:06.464687] Taking measurements @ 14:33:06:464650
+[2023-12-13 14:33:06.975386] Taking measurements @ 14:33:06:975332
+[2023-12-13 14:33:07.487442] Taking measurements @ 14:33:07:487357
+[2023-12-13 14:33:07.997985] Taking measurements @ 14:33:07:997920
+[2023-12-13 14:33:08.510297] Taking measurements @ 14:33:08:510222
+[2023-12-13 14:33:09.020622] Taking measurements @ 14:33:09:020549
+[2023-12-13 14:33:09.531158] Taking measurements @ 14:33:09:531116
+[2023-12-13 14:33:10.041732] Taking measurements @ 14:33:10:041653
+[2023-12-13 14:33:10.553812] Taking measurements @ 14:33:10:553771
+[2023-12-13 14:33:11.064896] Taking measurements @ 14:33:11:064805
+[2023-12-13 14:33:11.575615] Taking measurements @ 14:33:11:575578
+[2023-12-13 14:33:12.097462] Filtered data (avg): Pwr:19.8135986328125,P_Var:21.56066131591797, Qual:72.10449981689453, Q_Var:0.2933402359485626, {"lat": 35.72887406793478, "lon": -78.69876926032607, "alt": 39.825375}, heading:314.3804347826087
+[2023-12-13 14:33:12.097485] New highest power measurement: 19.8135986328125 @ {"lat": 35.72887406793478, "lon": -78.69876926032607, "alt": 39.825375}
+[2023-12-13 14:33:12.675847] GP optimizer epsilon: 0.0009765625
+[2023-12-13 14:33:12.675879] GP marginal likelihood: -42.53880128130252
+[2023-12-13 14:33:12.675888] ===GP refined prediction: {"lat": 35.729002614233345, "lon": -78.69899202328878, "alt": 0}===
+[2023-12-13 14:33:12.675941] Distance from vehicle to prediction: 46.76671809443726
+[2023-12-13 14:33:12.675954] Settle counter: 1
+[2023-12-13 14:33:12.677559] Desired waypoint from GP: {"lat": 35.72931030026633, "lon": -78.6995382581728, "alt": 40}
+[2023-12-13 14:33:12.677618] Next waypoint from GP (limited and nudged): {"lat": 35.729030653626346, "lon": -78.69904313043308, "alt": 40}
+[2023-12-13 14:33:12.688947] Saved GP data to gp.pickle
+[2023-12-13 14:33:12.688969] Number of (Q_var) valid measurements: 10
+[2023-12-13 14:33:12.782045] 16 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:33:12.783203] Saved DM data to m_data.pickle
+[2023-12-13 14:33:12.793559] Moving to next waypoint: {"lat": 35.729030653626346, "lon": -78.69904313043308, "alt": 40}
+[2023-12-13 14:33:12.793581] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:33:12.793591] Command to waypoint issued
+[2023-12-13 14:33:23.073816] Command to turn issued
+[2023-12-13 14:33:23.184696] Taking measurements @ 14:33:23:184663
+[2023-12-13 14:33:23.695716] Taking measurements @ 14:33:23:695677
+[2023-12-13 14:33:24.207183] Taking measurements @ 14:33:24:207144
+[2023-12-13 14:33:24.718533] Taking measurements @ 14:33:24:718495
+[2023-12-13 14:33:25.229656] Taking measurements @ 14:33:25:229622
+[2023-12-13 14:33:25.740180] Taking measurements @ 14:33:25:740105
+[2023-12-13 14:33:26.251486] Taking measurements @ 14:33:26:251430
+[2023-12-13 14:33:26.762202] Taking measurements @ 14:33:26:762130
+[2023-12-13 14:33:27.272710] Taking measurements @ 14:33:27:272631
+[2023-12-13 14:33:27.783112] Taking measurements @ 14:33:27:783039
+[2023-12-13 14:33:28.293571] Taking measurements @ 14:33:28:293533
+[2023-12-13 14:33:28.804324] Taking measurements @ 14:33:28:804253
+[2023-12-13 14:33:29.326381] Filtered data (avg): Pwr:25.002655029296875,P_Var:12.847518920898438, Qual:72.09575653076172, Q_Var:0.3307258188724518, {"lat": 35.72902797189189, "lon": -78.6990444108108, "alt": 39.86956216216217}, heading:314.72972972972974
+[2023-12-13 14:33:29.326409] New highest power measurement: 25.002655029296875 @ {"lat": 35.72902797189189, "lon": -78.6990444108108, "alt": 39.86956216216217}
+[2023-12-13 14:33:29.850797] GP optimizer epsilon: 0.00048828125
+[2023-12-13 14:33:29.850830] GP marginal likelihood: -46.07534110423095
+[2023-12-13 14:33:29.850838] ===GP refined prediction: {"lat": 35.72910722919566, "lon": -78.6991819152178, "alt": 0}===
+[2023-12-13 14:33:29.850854] Distance from vehicle to prediction: 42.62266122159997
+[2023-12-13 14:33:29.851511] Settle counter: 0
+[2023-12-13 14:33:29.856445] Desired waypoint from GP: {"lat": 35.72931030026633, "lon": -78.6995382581728, "alt": 40}
+[2023-12-13 14:33:29.856708] Next waypoint from GP (limited and nudged): {"lat": 35.72918507292349, "lon": -78.69931809978705, "alt": 40}
+[2023-12-13 14:33:29.866054] Saved GP data to gp.pickle
+[2023-12-13 14:33:29.866132] Number of (Q_var) valid measurements: 11
+[2023-12-13 14:33:30.003331] 17 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:33:30.007369] Saved DM data to m_data.pickle
+[2023-12-13 14:33:30.017976] Moving to next waypoint: {"lat": 35.72918507292349, "lon": -78.69931809978705, "alt": 40}
+[2023-12-13 14:33:30.018018] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:33:30.018076] Command to waypoint issued
+[2023-12-13 14:33:40.328566] Command to turn issued
+[2023-12-13 14:33:40.439930] Taking measurements @ 14:33:40:439779
+[2023-12-13 14:33:40.951498] Taking measurements @ 14:33:40:951464
+[2023-12-13 14:33:41.462887] Taking measurements @ 14:33:41:462851
+[2023-12-13 14:33:41.974417] Taking measurements @ 14:33:41:974346
+[2023-12-13 14:33:42.484864] Taking measurements @ 14:33:42:484787
+[2023-12-13 14:33:42.996544] Taking measurements @ 14:33:42:996469
+[2023-12-13 14:33:43.508194] Taking measurements @ 14:33:43:508121
+[2023-12-13 14:33:44.018996] Taking measurements @ 14:33:44:018897
+[2023-12-13 14:33:44.530166] Taking measurements @ 14:33:44:530093
+[2023-12-13 14:33:45.042215] Taking measurements @ 14:33:45:042147
+[2023-12-13 14:33:45.553764] Taking measurements @ 14:33:45:553689
+[2023-12-13 14:33:46.065889] Taking measurements @ 14:33:46:065853
+[2023-12-13 14:33:46.587132] Filtered data (avg): Pwr:4.027353763580322,P_Var:251.83865356445312, Qual:62.6292839050293, Q_Var:158.2300567626953, {"lat": 35.729181815846985, "lon": -78.69931385901639, "alt": 39.88350273224044}, heading:315.3387978142076
+[2023-12-13 14:33:46.587158] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:33:46.587164] ++Dropped measurements: 7++
+[2023-12-13 14:33:46.587168] GP marginal likelihood: -46.07534110423095
+[2023-12-13 14:33:46.587171] ===GP refined prediction: {"lat": 35.72910722919566, "lon": -78.6991819152178, "alt": 0}===
+[2023-12-13 14:33:46.587200] Distance from vehicle to prediction: 42.58613863268485
+[2023-12-13 14:33:46.587213] Settle counter: 0
+[2023-12-13 14:33:46.588526] Desired waypoint from GP: {"lat": 35.72931030026633, "lon": -78.6995382581728, "alt": 40}
+[2023-12-13 14:33:46.588595] Next waypoint from GP (limited and nudged): {"lat": 35.72931030026633, "lon": -78.6995382581728, "alt": 40}
+[2023-12-13 14:33:46.591393] Saved GP data to gp.pickle
+[2023-12-13 14:33:46.591411] Number of (Q_var) valid measurements: 11
+[2023-12-13 14:33:46.631226] 18 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:33:46.632904] Saved DM data to m_data.pickle
+[2023-12-13 14:33:46.643197] Moving to next waypoint: {"lat": 35.72931030026633, "lon": -78.6995382581728, "alt": 40}
+[2023-12-13 14:33:46.643216] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:33:46.643223] Command to waypoint issued
+[2023-12-13 14:33:55.625360] Command to turn issued
+[2023-12-13 14:33:55.736431] Taking measurements @ 14:33:55:736371
+[2023-12-13 14:33:56.247338] Taking measurements @ 14:33:56:247263
+[2023-12-13 14:33:56.758140] Taking measurements @ 14:33:56:758039
+[2023-12-13 14:33:57.268491] Taking measurements @ 14:33:57:268417
+[2023-12-13 14:33:57.779580] Taking measurements @ 14:33:57:779504
+[2023-12-13 14:33:58.290077] Taking measurements @ 14:33:58:290000
+[2023-12-13 14:33:58.801123] Taking measurements @ 14:33:58:801050
+[2023-12-13 14:33:59.311699] Taking measurements @ 14:33:59:311631
+[2023-12-13 14:33:59.821994] Taking measurements @ 14:33:59:821936
+[2023-12-13 14:34:00.332926] Taking measurements @ 14:34:00:332893
+[2023-12-13 14:34:00.843537] Taking measurements @ 14:34:00:843463
+[2023-12-13 14:34:01.354789] Taking measurements @ 14:34:01:354714
+[2023-12-13 14:34:01.876528] Filtered data (avg): Pwr:7.346303462982178,P_Var:168.43698120117188, Qual:64.73921203613281, Q_Var:133.5921173095703, {"lat": 35.72930640430108, "lon": -78.6995376811828, "alt": 39.921612903225814}, heading:315.0
+[2023-12-13 14:34:01.876556] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:34:01.876561] ++Dropped measurements: 8++
+[2023-12-13 14:34:01.876565] GP marginal likelihood: -46.07534110423095
+[2023-12-13 14:34:01.876568] ===GP refined prediction: {"lat": 35.72910722919566, "lon": -78.6991819152178, "alt": 0}===
+[2023-12-13 14:34:01.876573] Distance from vehicle to prediction: 55.95557799893868
+[2023-12-13 14:34:01.876576] Settle counter: 0
+[2023-12-13 14:34:01.877482] Desired waypoint from GP: {"lat": 35.72931030026633, "lon": -78.6995382581728, "alt": 40}
+[2023-12-13 14:34:01.877499] ~~nudging waypoint to prevent repeat measurement~~
+[2023-12-13 14:34:01.878131] Next waypoint from GP (limited and nudged): {"lat": 35.72924743043917, "lon": -78.69946043350348, "alt": 40}
+[2023-12-13 14:34:01.880093] Saved GP data to gp.pickle
+[2023-12-13 14:34:01.880110] Number of (Q_var) valid measurements: 11
+[2023-12-13 14:34:01.941814] 19 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:34:01.942845] Saved DM data to m_data.pickle
+[2023-12-13 14:34:01.953132] Moving to next waypoint: {"lat": 35.72924743043917, "lon": -78.69946043350348, "alt": 40}
+[2023-12-13 14:34:01.953173] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:34:01.953231] Command to waypoint issued
+[2023-12-13 14:34:07.085800] Command to turn issued
+[2023-12-13 14:34:07.197037] Taking measurements @ 14:34:07:196963
+[2023-12-13 14:34:07.708310] Taking measurements @ 14:34:07:708234
+[2023-12-13 14:34:08.218686] Taking measurements @ 14:34:08:218607
+[2023-12-13 14:34:08.729152] Taking measurements @ 14:34:08:729078
+[2023-12-13 14:34:09.240006] Taking measurements @ 14:34:09:239970
+[2023-12-13 14:34:09.751930] Taking measurements @ 14:34:09:751863
+[2023-12-13 14:34:10.263327] Taking measurements @ 14:34:10:263238
+[2023-12-13 14:34:10.774507] Taking measurements @ 14:34:10:774471
+[2023-12-13 14:34:11.285521] Taking measurements @ 14:34:11:285484
+[2023-12-13 14:34:11.796564] Taking measurements @ 14:34:11:796480
+[2023-12-13 14:34:12.307895] Taking measurements @ 14:34:12:307806
+[2023-12-13 14:34:12.819624] Taking measurements @ 14:34:12:819588
+[2023-12-13 14:34:13.341649] Filtered data (avg): Pwr:12.730911254882812,P_Var:77.76769256591797, Qual:69.7752456665039, Q_Var:44.83598327636719, {"lat": 35.72924982810811, "lon": -78.69946307891892, "alt": 39.99173513513513}, heading:315.02702702702703
+[2023-12-13 14:34:14.048375] GP optimizer epsilon: 0.000244140625
+[2023-12-13 14:34:14.048487] GP marginal likelihood: -50.001566288741294
+[2023-12-13 14:34:14.048628] ===GP refined prediction: {"lat": 35.72906928090001, "lon": -78.69899202328878, "alt": 0}===
+[2023-12-13 14:34:14.048734] Distance from vehicle to prediction: 61.615939905748945
+[2023-12-13 14:34:14.048826] Settle counter: 0
+[2023-12-13 14:34:14.052181] Desired waypoint from GP: {"lat": 35.72911208244298, "lon": -78.69899570980412, "alt": 40}
+[2023-12-13 14:34:14.052475] Next waypoint from GP (limited and nudged): {"lat": 35.72915711885095, "lon": -78.69915002460166, "alt": 40}
+[2023-12-13 14:34:14.060745] Saved GP data to gp.pickle
+[2023-12-13 14:34:14.060872] Number of (Q_var) valid measurements: 12
+[2023-12-13 14:34:14.216890] 20 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:34:14.218247] Saved DM data to m_data.pickle
+[2023-12-13 14:34:14.228832] Moving to next waypoint: {"lat": 35.72915711885095, "lon": -78.69915002460166, "alt": 40}
+[2023-12-13 14:34:14.228848] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:34:14.228854] Command to waypoint issued
+[2023-12-13 14:34:24.358076] Command to turn issued
+[2023-12-13 14:34:24.469003] Taking measurements @ 14:34:24:468969
+[2023-12-13 14:34:24.979990] Taking measurements @ 14:34:24:979937
+[2023-12-13 14:34:25.491332] Taking measurements @ 14:34:25:491282
+[2023-12-13 14:34:26.002616] Taking measurements @ 14:34:26:002579
+[2023-12-13 14:34:26.513688] Taking measurements @ 14:34:26:513651
+[2023-12-13 14:34:27.024960] Taking measurements @ 14:34:27:024917
+[2023-12-13 14:34:27.535705] Taking measurements @ 14:34:27:535668
+[2023-12-13 14:34:28.046993] Taking measurements @ 14:34:28:046956
+[2023-12-13 14:34:28.557445] Taking measurements @ 14:34:28:557409
+[2023-12-13 14:34:29.068743] Taking measurements @ 14:34:29:068704
+[2023-12-13 14:34:29.580479] Taking measurements @ 14:34:29:580448
+[2023-12-13 14:34:30.091636] Taking measurements @ 14:34:30:091598
+[2023-12-13 14:34:30.613285] Filtered data (avg): Pwr:4.328453063964844,P_Var:196.74803161621094, Qual:64.06233215332031, Q_Var:125.16108703613281, {"lat": 35.72915760652174, "lon": -78.69915136086956, "alt": 39.9625}, heading:314.1902173913044
+[2023-12-13 14:34:30.613318] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:34:30.613329] ++Dropped measurements: 9++
+[2023-12-13 14:34:30.613335] GP marginal likelihood: -50.001566288741294
+[2023-12-13 14:34:30.613346] ===GP refined prediction: {"lat": 35.72906928090001, "lon": -78.69899202328878, "alt": 0}===
+[2023-12-13 14:34:30.613355] Distance from vehicle to prediction: 43.548748654692744
+[2023-12-13 14:34:30.613365] Settle counter: 0
+[2023-12-13 14:34:30.614199] Desired waypoint from GP: {"lat": 35.72911208244298, "lon": -78.69899570980412, "alt": 40}
+[2023-12-13 14:34:30.614233] Next waypoint from GP (limited and nudged): {"lat": 35.72911208244298, "lon": -78.69899570980412, "alt": 40}
+[2023-12-13 14:34:30.616521] Saved GP data to gp.pickle
+[2023-12-13 14:34:30.616539] Number of (Q_var) valid measurements: 12
+[2023-12-13 14:34:30.663439] 21 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:34:30.665017] Saved DM data to m_data.pickle
+[2023-12-13 14:34:30.675279] Moving to next waypoint: {"lat": 35.72911208244298, "lon": -78.69899570980412, "alt": 40}
+[2023-12-13 14:34:30.675300] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:34:30.675309] Command to waypoint issued
+[2023-12-13 14:34:37.328972] Command to turn issued
+[2023-12-13 14:34:37.440301] Taking measurements @ 14:34:37:440264
+[2023-12-13 14:34:37.951238] Taking measurements @ 14:34:37:951203
+[2023-12-13 14:34:38.463181] Taking measurements @ 14:34:38:463145
+[2023-12-13 14:34:38.974121] Taking measurements @ 14:34:38:974086
+[2023-12-13 14:34:39.485652] Taking measurements @ 14:34:39:485616
+[2023-12-13 14:34:39.996696] Taking measurements @ 14:34:39:996648
+[2023-12-13 14:34:40.508707] Taking measurements @ 14:34:40:508670
+[2023-12-13 14:34:41.019135] Taking measurements @ 14:34:41:019097
+[2023-12-13 14:34:41.529636] Taking measurements @ 14:34:41:529582
+[2023-12-13 14:34:42.040061] Taking measurements @ 14:34:42:040024
+[2023-12-13 14:34:42.551233] Taking measurements @ 14:34:42:551196
+[2023-12-13 14:34:43.061733] Taking measurements @ 14:34:43:061697
+[2023-12-13 14:34:43.582888] Filtered data (avg): Pwr:-0.4333485960960388,P_Var:202.62158203125, Qual:59.641849517822266, Q_Var:166.92129516601562, {"lat": 35.729111926373626, "lon": -78.69899698076922, "alt": 39.98461538461539}, heading:314.65934065934067
+[2023-12-13 14:34:43.582915] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:34:43.582921] ++Dropped measurements: 10++
+[2023-12-13 14:34:43.582925] ++Too many dropped measurements, switch to aux!!++
+[2023-12-13 14:34:43.582954] 18 aux path created:
+[2023-12-13 14:34:43.582968] {"lat": 35.72955955764206, "lon": -78.698996, "alt": 0}
+[2023-12-13 14:34:43.582978] {"lat": 35.72953247012182, "lon": -78.69918523802954, "alt": 0}
+[2023-12-13 14:34:43.582987] {"lat": 35.72945447471579, "lon": -78.69935165115986, "alt": 0}
+[2023-12-13 14:34:43.582996] {"lat": 35.729334978821036, "lon": -78.69947516751145, "alt": 0}
+[2023-12-13 14:34:43.583005] {"lat": 35.729188395406034, "lon": -78.69954088918941, "alt": 0}
+[2023-12-13 14:34:43.583013] {"lat": 35.72903240459397, "lon": -78.69954088918941, "alt": 0}
+[2023-12-13 14:34:43.583020] {"lat": 35.72888582117897, "lon": -78.69947516751145, "alt": 0}
+[2023-12-13 14:34:43.583027] {"lat": 35.72876632528422, "lon": -78.69935165115986, "alt": 0}
+[2023-12-13 14:34:43.583034] {"lat": 35.72868832987819, "lon": -78.69918523802954, "alt": 0}
+[2023-12-13 14:34:43.583040] {"lat": 35.728661242357944, "lon": -78.698996, "alt": 0}
+[2023-12-13 14:34:43.583047] {"lat": 35.72868832987819, "lon": -78.69880676197045, "alt": 0}
+[2023-12-13 14:34:43.583054] {"lat": 35.72876632528422, "lon": -78.69864034884013, "alt": 0}
+[2023-12-13 14:34:43.583060] {"lat": 35.72888582117897, "lon": -78.69851683248854, "alt": 0}
+[2023-12-13 14:34:43.583069] {"lat": 35.72903240459397, "lon": -78.69845111081058, "alt": 0}
+[2023-12-13 14:34:43.583076] {"lat": 35.729188395406034, "lon": -78.69845111081058, "alt": 0}
+[2023-12-13 14:34:43.583083] {"lat": 35.729334978821036, "lon": -78.69851683248854, "alt": 0}
+[2023-12-13 14:34:43.583089] {"lat": 35.72945447471579, "lon": -78.69864034884013, "alt": 0}
+[2023-12-13 14:34:43.583095] {"lat": 35.72953247012182, "lon": -78.69880676197045, "alt": 0}
+[2023-12-13 14:34:43.620870] 18 aux path after boundry check:
+[2023-12-13 14:34:43.620912] {"lat": 35.72931030026633, "lon": -78.69899570980412, "alt": 0}
+[2023-12-13 14:34:43.620919] {"lat": 35.72931030026633, "lon": -78.69919916544238, "alt": 0}
+[2023-12-13 14:34:43.620923] {"lat": 35.72931030026633, "lon": -78.69933480253455, "alt": 0}
+[2023-12-13 14:34:43.620927] {"lat": 35.72931030026633, "lon": -78.69947043962671, "alt": 0}
+[2023-12-13 14:34:43.620931] {"lat": 35.72921119135466, "lon": -78.6995382581728, "alt": 0}
+[2023-12-13 14:34:43.620935] {"lat": 35.72901297353131, "lon": -78.6995382581728, "alt": 0}
+[2023-12-13 14:34:43.620961] {"lat": 35.72888582117897, "lon": -78.69947516751145, "alt": 0}
+[2023-12-13 14:34:43.620968] {"lat": 35.72876632528422, "lon": -78.69935165115986, "alt": 0}
+[2023-12-13 14:34:43.620975] {"lat": 35.72868832987819, "lon": -78.69918523802954, "alt": 0}
+[2023-12-13 14:34:43.620979] {"lat": 35.728661242357944, "lon": -78.698996, "alt": 0}
+[2023-12-13 14:34:43.620983] {"lat": 35.72868832987819, "lon": -78.69880676197045, "alt": 0}
+[2023-12-13 14:34:43.620987] {"lat": 35.72876632528422, "lon": -78.69864034884013, "alt": 0}
+[2023-12-13 14:34:43.620991] {"lat": 35.72888582117897, "lon": -78.69851683248854, "alt": 0}
+[2023-12-13 14:34:43.621018] {"lat": 35.72903240459397, "lon": -78.69845111081058, "alt": 0}
+[2023-12-13 14:34:43.621027] {"lat": 35.729188395406034, "lon": -78.69845111081058, "alt": 0}
+[2023-12-13 14:34:43.621032] {"lat": 35.72931030026633, "lon": -78.69852097998155, "alt": 0}
+[2023-12-13 14:34:43.621036] {"lat": 35.72931030026633, "lon": -78.69865661707371, "alt": 0}
+[2023-12-13 14:34:43.621039] {"lat": 35.72931030026633, "lon": -78.69879225416588, "alt": 0}
+[2023-12-13 14:34:43.621046] GP marginal likelihood: -50.001566288741294
+[2023-12-13 14:34:43.621053] ===GP refined prediction: {"lat": 35.72906928090001, "lon": -78.69899202328878, "alt": 0}===
+[2023-12-13 14:34:43.621085] Distance from vehicle to prediction: 40.278630511820424
+[2023-12-13 14:34:43.623142] Saved GP data to gp.pickle
+[2023-12-13 14:34:43.623156] Number of (Q_var) valid measurements: 12
+[2023-12-13 14:34:43.693537] 22 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:34:43.694826] Saved DM data to m_data.pickle
+[2023-12-13 14:34:43.705329] Moving to next waypoint: {"lat": 35.72931030026633, "lon": -78.69899570980412, "alt": 40}
+[2023-12-13 14:34:43.705346] There are now 17 waypoints left in any precomputed route
+[2023-12-13 14:34:43.705365] Command to waypoint issued
+[2023-12-13 14:34:52.171531] Command to turn issued
+[2023-12-13 14:34:52.282784] Taking measurements @ 14:34:52:282709
+[2023-12-13 14:34:52.794494] Taking measurements @ 14:34:52:794402
+[2023-12-13 14:34:53.304943] Taking measurements @ 14:34:53:304862
+[2023-12-13 14:34:53.816912] Taking measurements @ 14:34:53:816875
+[2023-12-13 14:34:54.328066] Taking measurements @ 14:34:54:328026
+[2023-12-13 14:34:54.839065] Taking measurements @ 14:34:54:839031
+[2023-12-13 14:34:55.349653] Taking measurements @ 14:34:55:349615
+[2023-12-13 14:34:55.859969] Taking measurements @ 14:34:55:859933
+[2023-12-13 14:34:56.370760] Taking measurements @ 14:34:56:370723
+[2023-12-13 14:34:56.882059] Taking measurements @ 14:34:56:882018
+[2023-12-13 14:34:57.392559] Taking measurements @ 14:34:57:392521
+[2023-12-13 14:34:57.903844] Taking measurements @ 14:34:57:903812
+[2023-12-13 14:34:58.425963] Filtered data (avg): Pwr:20.25760269165039,P_Var:8.477734565734863, Qual:72.06825256347656, Q_Var:1.1895198822021484, {"lat": 35.729306836756756, "lon": -78.69899692810812, "alt": 39.828005405405406}, heading:314.9027027027027
+[2023-12-13 14:34:59.038833] GP optimizer epsilon: 0.0001220703125
+[2023-12-13 14:34:59.038896] GP marginal likelihood: -53.40736835895561
+[2023-12-13 14:34:59.038973] ===GP refined prediction: {"lat": 35.72911047727006, "lon": -78.69905868995545, "alt": 0}===
+[2023-12-13 14:34:59.039034] Distance from vehicle to prediction: 45.963672966566
+[2023-12-13 14:34:59.042656] Saved GP data to gp.pickle
+[2023-12-13 14:34:59.042708] Number of (Q_var) valid measurements: 13
+[2023-12-13 14:34:59.205287] 23 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:34:59.207105] Saved DM data to m_data.pickle
+[2023-12-13 14:34:59.217642] Moving to next waypoint: {"lat": 35.72931030026633, "lon": -78.69919916544238, "alt": 40}
+[2023-12-13 14:34:59.217666] There are now 16 waypoints left in any precomputed route
+[2023-12-13 14:34:59.217673] Command to waypoint issued
+[2023-12-13 14:35:06.894412] Command to turn issued
+[2023-12-13 14:35:07.005538] Taking measurements @ 14:35:07:005483
+[2023-12-13 14:35:07.517213] Taking measurements @ 14:35:07:517115
+[2023-12-13 14:35:08.028163] Taking measurements @ 14:35:08:028127
+[2023-12-13 14:35:08.539473] Taking measurements @ 14:35:08:539436
+[2023-12-13 14:35:09.050551] Taking measurements @ 14:35:09:050476
+[2023-12-13 14:35:09.561654] Taking measurements @ 14:35:09:561580
+[2023-12-13 14:35:10.071960] Taking measurements @ 14:35:10:071922
+[2023-12-13 14:35:10.583094] Taking measurements @ 14:35:10:583058
+[2023-12-13 14:35:11.094375] Taking measurements @ 14:35:11:094334
+[2023-12-13 14:35:11.604844] Taking measurements @ 14:35:11:604752
+[2023-12-13 14:35:12.115892] Taking measurements @ 14:35:12:115858
+[2023-12-13 14:35:12.626323] Taking measurements @ 14:35:12:626289
+[2023-12-13 14:35:13.148953] Filtered data (avg): Pwr:14.191307067871094,P_Var:21.878894805908203, Qual:71.08048248291016, Q_Var:17.983036041259766, {"lat": 35.72930778324325, "lon": -78.6991918864865, "alt": 39.96125945945946}, heading:315.0054054054054
+[2023-12-13 14:35:13.723619] GP optimizer epsilon: 6.103515625e-05
+[2023-12-13 14:35:13.723686] GP marginal likelihood: -56.6893142274063
+[2023-12-13 14:35:13.723766] ===GP refined prediction: {"lat": 35.72911047727006, "lon": -78.69909202328878, "alt": 0}===
+[2023-12-13 14:35:13.723829] Distance from vehicle to prediction: 46.595050723304325
+[2023-12-13 14:35:13.727548] Saved GP data to gp.pickle
+[2023-12-13 14:35:13.727600] Number of (Q_var) valid measurements: 14
+[2023-12-13 14:35:13.827916] 24 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:35:13.832552] Saved DM data to m_data.pickle
+[2023-12-13 14:35:13.843272] Moving to next waypoint: {"lat": 35.72931030026633, "lon": -78.69933480253455, "alt": 40}
+[2023-12-13 14:35:13.843366] There are now 15 waypoints left in any precomputed route
+[2023-12-13 14:35:13.843472] Command to waypoint issued
+[2023-12-13 14:35:19.923536] Command to turn issued
+[2023-12-13 14:35:20.034641] Taking measurements @ 14:35:20:034570
+[2023-12-13 14:35:20.545830] Taking measurements @ 14:35:20:545790
+[2023-12-13 14:35:21.056346] Taking measurements @ 14:35:21:056252
+[2023-12-13 14:35:21.567416] Taking measurements @ 14:35:21:567379
+[2023-12-13 14:35:22.078073] Taking measurements @ 14:35:22:078040
+[2023-12-13 14:35:22.589796] Taking measurements @ 14:35:22:589722
+[2023-12-13 14:35:23.100983] Taking measurements @ 14:35:23:100948
+[2023-12-13 14:35:23.612209] Taking measurements @ 14:35:23:612173
+[2023-12-13 14:35:24.123475] Taking measurements @ 14:35:24:123440
+[2023-12-13 14:35:24.634483] Taking measurements @ 14:35:24:634407
+[2023-12-13 14:35:25.145566] Taking measurements @ 14:35:25:145493
+[2023-12-13 14:35:25.656558] Taking measurements @ 14:35:25:656470
+[2023-12-13 14:35:26.178392] Filtered data (avg): Pwr:1.3536057472229004,P_Var:106.02030944824219, Qual:66.2725601196289, Q_Var:96.76020812988281, {"lat": 35.7293076572973, "lon": -78.69933272162162, "alt": 39.96266486486486}, heading:314.8702702702703
+[2023-12-13 14:35:26.178418] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:35:26.178424] ++Dropped measurements: 11++
+[2023-12-13 14:35:26.178427] GP marginal likelihood: -56.6893142274063
+[2023-12-13 14:35:26.178431] ===GP refined prediction: {"lat": 35.72911047727006, "lon": -78.69909202328878, "alt": 0}===
+[2023-12-13 14:35:26.178435] Distance from vehicle to prediction: 50.687830139596485
+[2023-12-13 14:35:26.180903] Saved GP data to gp.pickle
+[2023-12-13 14:35:26.180918] Number of (Q_var) valid measurements: 14
+[2023-12-13 14:35:26.259743] 25 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:35:26.261224] Saved DM data to m_data.pickle
+[2023-12-13 14:35:26.271697] Moving to next waypoint: {"lat": 35.72931030026633, "lon": -78.69947043962671, "alt": 40}
+[2023-12-13 14:35:26.271714] There are now 14 waypoints left in any precomputed route
+[2023-12-13 14:35:26.271720] Command to waypoint issued
+[2023-12-13 14:35:32.333257] Command to turn issued
+[2023-12-13 14:35:32.444276] Taking measurements @ 14:35:32:444185
+[2023-12-13 14:35:32.955508] Taking measurements @ 14:35:32:955437
+[2023-12-13 14:35:33.466794] Taking measurements @ 14:35:33:466701
+[2023-12-13 14:35:33.978108] Taking measurements @ 14:35:33:978071
+[2023-12-13 14:35:34.489777] Taking measurements @ 14:35:34:489721
+[2023-12-13 14:35:35.000985] Taking measurements @ 14:35:35:000948
+[2023-12-13 14:35:35.511289] Taking measurements @ 14:35:35:511234
+[2023-12-13 14:35:36.022659] Taking measurements @ 14:35:36:022586
+[2023-12-13 14:35:36.534070] Taking measurements @ 14:35:36:534030
+[2023-12-13 14:35:37.045200] Taking measurements @ 14:35:37:045126
+[2023-12-13 14:35:37.555928] Taking measurements @ 14:35:37:555891
+[2023-12-13 14:35:38.066449] Taking measurements @ 14:35:38:066371
+[2023-12-13 14:35:38.588394] Filtered data (avg): Pwr:14.583422660827637,P_Var:56.180213928222656, Qual:69.72712707519531, Q_Var:53.34988784790039, {"lat": 35.72930793945946, "lon": -78.69946663297297, "alt": 39.981454054054055}, heading:315.0054054054054
+[2023-12-13 14:35:39.168262] GP optimizer epsilon: 3.0517578125e-05
+[2023-12-13 14:35:39.168300] GP marginal likelihood: -59.86714349193019
+[2023-12-13 14:35:39.168310] ===GP refined prediction: {"lat": 35.72908825504784, "lon": -78.69909202328878, "alt": 0}===
+[2023-12-13 14:35:39.168317] Distance from vehicle to prediction: 57.877759564141314
+[2023-12-13 14:35:39.176338] Saved GP data to gp.pickle
+[2023-12-13 14:35:39.176415] Number of (Q_var) valid measurements: 15
+[2023-12-13 14:35:39.335463] 26 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:35:39.337829] Saved DM data to m_data.pickle
+[2023-12-13 14:35:39.348682] Moving to next waypoint: {"lat": 35.72921119135466, "lon": -78.6995382581728, "alt": 40}
+[2023-12-13 14:35:39.348700] There are now 13 waypoints left in any precomputed route
+[2023-12-13 14:35:39.348713] Command to waypoint issued
+[2023-12-13 14:35:45.426455] Command to turn issued
+[2023-12-13 14:35:45.537667] Taking measurements @ 14:35:45:537627
+[2023-12-13 14:35:46.048483] Taking measurements @ 14:35:46:048446
+[2023-12-13 14:35:46.560207] Taking measurements @ 14:35:46:560152
+[2023-12-13 14:35:47.071466] Taking measurements @ 14:35:47:071421
+[2023-12-13 14:35:47.583127] Taking measurements @ 14:35:47:583091
+[2023-12-13 14:35:48.093990] Taking measurements @ 14:35:48:093954
+[2023-12-13 14:35:48.604638] Taking measurements @ 14:35:48:604534
+[2023-12-13 14:35:49.115651] Taking measurements @ 14:35:49:115578
+[2023-12-13 14:35:49.626402] Taking measurements @ 14:35:49:626346
+[2023-12-13 14:35:50.138172] Taking measurements @ 14:35:50:138101
+[2023-12-13 14:35:50.649085] Taking measurements @ 14:35:50:649031
+[2023-12-13 14:35:51.160214] Taking measurements @ 14:35:51:160180
+[2023-12-13 14:35:51.682052] Filtered data (avg): Pwr:10.77418327331543,P_Var:12.824968338012695, Qual:70.29684448242188, Q_Var:20.367530822753906, {"lat": 35.72921056451612, "lon": -78.6995372155914, "alt": 40.020456989247315}, heading:314.7956989247312
+[2023-12-13 14:35:52.199304] GP optimizer epsilon: 1.52587890625e-05
+[2023-12-13 14:35:52.199408] GP marginal likelihood: -62.97023849042932
+[2023-12-13 14:35:52.199544] ===GP refined prediction: {"lat": 35.72904705867779, "lon": -78.69906980106656, "alt": 0}===
+[2023-12-13 14:35:52.199698] Distance from vehicle to prediction: 61.06046011049441
+[2023-12-13 14:35:52.208202] Saved GP data to gp.pickle
+[2023-12-13 14:35:52.208270] Number of (Q_var) valid measurements: 16
+[2023-12-13 14:35:52.367965] 27 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:35:52.369729] Saved DM data to m_data.pickle
+[2023-12-13 14:35:52.380315] Moving to next waypoint: {"lat": 35.72901297353131, "lon": -78.6995382581728, "alt": 40}
+[2023-12-13 14:35:52.380347] There are now 12 waypoints left in any precomputed route
+[2023-12-13 14:35:52.380393] Command to waypoint issued
+[2023-12-13 14:36:00.665505] Command to turn issued
+[2023-12-13 14:36:00.776763] Taking measurements @ 14:36:00:776686
+[2023-12-13 14:36:01.287664] Taking measurements @ 14:36:01:287590
+[2023-12-13 14:36:01.797994] Taking measurements @ 14:36:01:797914
+[2023-12-13 14:36:02.308919] Taking measurements @ 14:36:02:308841
+[2023-12-13 14:36:02.819617] Taking measurements @ 14:36:02:819570
+[2023-12-13 14:36:03.330815] Taking measurements @ 14:36:03:330750
+[2023-12-13 14:36:03.841348] Taking measurements @ 14:36:03:841312
+[2023-12-13 14:36:04.351843] Taking measurements @ 14:36:04:351808
+[2023-12-13 14:36:04.863103] Taking measurements @ 14:36:04:863064
+[2023-12-13 14:36:05.374161] Taking measurements @ 14:36:05:374123
+[2023-12-13 14:36:05.884977] Taking measurements @ 14:36:05:884899
+[2023-12-13 14:36:06.396175] Taking measurements @ 14:36:06:396091
+[2023-12-13 14:36:06.918164] Filtered data (avg): Pwr:-0.5701653361320496,P_Var:106.58950805664062, Qual:65.26043701171875, Q_Var:94.77279663085938, {"lat": 35.729013818918915, "lon": -78.6995377508108, "alt": 40.013918918918925}, heading:314.22162162162164
+[2023-12-13 14:36:06.918189] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:36:06.918195] ++Dropped measurements: 12++
+[2023-12-13 14:36:06.918198] GP marginal likelihood: -62.97023849042932
+[2023-12-13 14:36:06.918211] ===GP refined prediction: {"lat": 35.72904705867779, "lon": -78.69906980106656, "alt": 0}===
+[2023-12-13 14:36:06.918215] Distance from vehicle to prediction: 58.473294128821706
+[2023-12-13 14:36:06.920799] Saved GP data to gp.pickle
+[2023-12-13 14:36:06.920820] Number of (Q_var) valid measurements: 16
+[2023-12-13 14:36:07.005017] 28 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:36:07.006726] Saved DM data to m_data.pickle
+[2023-12-13 14:36:07.017181] Moving to next waypoint: {"lat": 35.72888582117897, "lon": -78.69947516751145, "alt": 40}
+[2023-12-13 14:36:07.017197] There are now 11 waypoints left in any precomputed route
+[2023-12-13 14:36:07.017207] Command to waypoint issued
+[2023-12-13 14:36:13.580709] Command to turn issued
+[2023-12-13 14:36:13.692196] Taking measurements @ 14:36:13:692158
+[2023-12-13 14:36:14.202766] Taking measurements @ 14:36:14:202690
+[2023-12-13 14:36:14.713420] Taking measurements @ 14:36:14:713382
+[2023-12-13 14:36:15.224182] Taking measurements @ 14:36:15:224107
+[2023-12-13 14:36:15.734548] Taking measurements @ 14:36:15:734476
+[2023-12-13 14:36:16.245663] Taking measurements @ 14:36:16:245590
+[2023-12-13 14:36:16.756573] Taking measurements @ 14:36:16:756501
+[2023-12-13 14:36:17.267920] Taking measurements @ 14:36:17:267844
+[2023-12-13 14:36:17.779078] Taking measurements @ 14:36:17:779039
+[2023-12-13 14:36:18.290405] Taking measurements @ 14:36:18:290337
+[2023-12-13 14:36:18.801363] Taking measurements @ 14:36:18:801323
+[2023-12-13 14:36:19.312242] Taking measurements @ 14:36:19:312171
+[2023-12-13 14:36:19.833256] Filtered data (avg): Pwr:-1.2769362926483154,P_Var:152.80711364746094, Qual:62.06848907470703, Q_Var:161.93971252441406, {"lat": 35.72888877049181, "lon": -78.69947485737704, "alt": 40.008715846994534}, heading:314.37158469945354
+[2023-12-13 14:36:19.833283] ++Quality varience is too high, do not use the data++
+[2023-12-13 14:36:19.833289] ++Dropped measurements: 13++
+[2023-12-13 14:36:19.833292] GP marginal likelihood: -62.97023849042932
+[2023-12-13 14:36:19.833296] ===GP refined prediction: {"lat": 35.72904705867779, "lon": -78.69906980106656, "alt": 0}===
+[2023-12-13 14:36:19.833302] Distance from vehicle to prediction: 57.107716517837325
+[2023-12-13 14:36:19.836214] Saved GP data to gp.pickle
+[2023-12-13 14:36:19.836236] Number of (Q_var) valid measurements: 16
+[2023-12-13 14:36:19.893470] 29 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:36:19.895090] Saved DM data to m_data.pickle
+[2023-12-13 14:36:19.905553] Moving to next waypoint: {"lat": 35.72876632528422, "lon": -78.69935165115986, "alt": 40}
+[2023-12-13 14:36:19.905567] There are now 10 waypoints left in any precomputed route
+[2023-12-13 14:36:19.905582] Command to waypoint issued
+[2023-12-13 14:36:27.086718] Command to turn issued
+[2023-12-13 14:36:27.198239] Taking measurements @ 14:36:27:198167
+[2023-12-13 14:36:27.709698] Taking measurements @ 14:36:27:709658
+[2023-12-13 14:36:28.220795] Taking measurements @ 14:36:28:220759
+[2023-12-13 14:36:28.731829] Taking measurements @ 14:36:28:731758
+[2023-12-13 14:36:29.242350] Taking measurements @ 14:36:29:242313
+[2023-12-13 14:36:29.753460] Taking measurements @ 14:36:29:753382
+[2023-12-13 14:36:30.264768] Taking measurements @ 14:36:30:264684
+[2023-12-13 14:36:30.775662] Taking measurements @ 14:36:30:775584
+[2023-12-13 14:36:31.286133] Taking measurements @ 14:36:31:286094
+[2023-12-13 14:36:31.796615] Taking measurements @ 14:36:31:796575
+[2023-12-13 14:36:32.307150] Taking measurements @ 14:36:32:307111
+[2023-12-13 14:36:32.818339] Taking measurements @ 14:36:32:818303
+[2023-12-13 14:36:33.339694] Filtered data (avg): Pwr:16.257917404174805,P_Var:28.27150535583496, Qual:71.65616607666016, Q_Var:9.218218803405762, {"lat": 35.7287703295082, "lon": -78.69934790163936, "alt": 39.95775409836065}, heading:314.3825136612022
+[2023-12-13 14:36:33.882542] GP optimizer epsilon: 7.62939453125e-06
+[2023-12-13 14:36:33.882626] GP marginal likelihood: -66.28523698671141
+[2023-12-13 14:36:33.882778] ===GP refined prediction: {"lat": 35.72906928090001, "lon": -78.69903646773322, "alt": 0}===
+[2023-12-13 14:36:33.882870] Distance from vehicle to prediction: 59.28193848539753
+[2023-12-13 14:36:33.891711] Saved GP data to gp.pickle
+[2023-12-13 14:36:33.891801] Number of (Q_var) valid measurements: 17
+[2023-12-13 14:36:34.058616] 30 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:36:34.060688] Saved DM data to m_data.pickle
+[2023-12-13 14:36:34.071348] Moving to next waypoint: {"lat": 35.72868832987819, "lon": -78.69918523802954, "alt": 40}
+[2023-12-13 14:36:34.071435] There are now 9 waypoints left in any precomputed route
+[2023-12-13 14:36:34.071756] Command to waypoint issued
+[2023-12-13 14:36:41.424289] Command to turn issued
+[2023-12-13 14:36:41.535769] Taking measurements @ 14:36:41:535695
+[2023-12-13 14:36:42.046653] Taking measurements @ 14:36:42:046578
+[2023-12-13 14:36:42.556983] Taking measurements @ 14:36:42:556910
+[2023-12-13 14:36:43.067650] Taking measurements @ 14:36:43:067610
+[2023-12-13 14:36:43.579837] Taking measurements @ 14:36:43:579768
+[2023-12-13 14:36:44.091195] Taking measurements @ 14:36:44:091161
+[2023-12-13 14:36:44.602122] Taking measurements @ 14:36:44:602088
+[2023-12-13 14:36:45.113170] Taking measurements @ 14:36:45:113099
+[2023-12-13 14:36:45.624312] Taking measurements @ 14:36:45:624237
+[2023-12-13 14:36:46.135746] Taking measurements @ 14:36:46:135709
+[2023-12-13 14:36:46.648020] Taking measurements @ 14:36:46:647945
+[2023-12-13 14:36:47.159229] Taking measurements @ 14:36:47:159191
+[2023-12-13 14:36:47.681136] Filtered data (avg): Pwr:16.50748634338379,P_Var:8.22683048248291, Qual:71.93746948242188, Q_Var:0.21500901877880096, {"lat": 35.72868969619566, "lon": -78.69918816304349, "alt": 39.99563586956522}, heading:314.3695652173913
+[2023-12-13 14:36:48.279810] GP optimizer epsilon: 3.814697265625e-06
+[2023-12-13 14:36:48.279850] GP marginal likelihood: -69.32851556333621
+[2023-12-13 14:36:48.279859] ===GP refined prediction: {"lat": 35.72906928090001, "lon": -78.69903646773322, "alt": 0}===
+[2023-12-13 14:36:48.279867] Distance from vehicle to prediction: 59.92613955222081
+[2023-12-13 14:36:48.288441] Saved GP data to gp.pickle
+[2023-12-13 14:36:48.288465] Number of (Q_var) valid measurements: 18
+[2023-12-13 14:36:48.487730] 31 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:36:48.489529] Saved DM data to m_data.pickle
+[2023-12-13 14:36:48.500035] Moving to next waypoint: {"lat": 35.728661242357944, "lon": -78.698996, "alt": 40}
+[2023-12-13 14:36:48.500052] There are now 8 waypoints left in any precomputed route
+[2023-12-13 14:36:48.500059] Command to waypoint issued
+[2023-12-13 14:36:55.884315] Command to turn issued
+[2023-12-13 14:36:55.994703] Taking measurements @ 14:36:55:994630
+[2023-12-13 14:36:56.505856] Taking measurements @ 14:36:56:505742
+[2023-12-13 14:36:57.016327] Taking measurements @ 14:36:57:016264
+[2023-12-13 14:36:57.526902] Taking measurements @ 14:36:57:526828
+[2023-12-13 14:36:58.037394] Taking measurements @ 14:36:58:037358
+[2023-12-13 14:36:58.548373] Taking measurements @ 14:36:58:548299
+[2023-12-13 14:36:59.059627] Taking measurements @ 14:36:59:059591
+[2023-12-13 14:36:59.570958] Taking measurements @ 14:36:59:570918
+[2023-12-13 14:37:00.082101] Taking measurements @ 14:37:00:082060
+[2023-12-13 14:37:00.593147] Taking measurements @ 14:37:00:593108
+[2023-12-13 14:37:01.104489] Taking measurements @ 14:37:01:104412
+[2023-12-13 14:37:01.615143] Taking measurements @ 14:37:01:615065
+[2023-12-13 14:37:02.136046] Filtered data (avg): Pwr:16.395877838134766,P_Var:3.398292064666748, Qual:71.9031753540039, Q_Var:0.7186793684959412, {"lat": 35.728660698360656, "lon": -78.69899686010929, "alt": 39.947912568306016}, heading:314.40437158469945
+[2023-12-13 14:37:02.706625] GP optimizer epsilon: 1.9073486328125e-06
+[2023-12-13 14:37:02.706694] GP marginal likelihood: -72.23738645313516
+[2023-12-13 14:37:02.706768] ===GP refined prediction: {"lat": 35.72906928090001, "lon": -78.69903646773322, "alt": 0}===
+[2023-12-13 14:37:02.706828] Distance from vehicle to prediction: 60.77229201659469
+[2023-12-13 14:37:02.711740] Saved GP data to gp.pickle
+[2023-12-13 14:37:02.711791] Number of (Q_var) valid measurements: 19
+[2023-12-13 14:37:02.880813] 32 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:37:02.882937] Saved DM data to m_data.pickle
+[2023-12-13 14:37:02.893463] Moving to next waypoint: {"lat": 35.72868832987819, "lon": -78.69880676197045, "alt": 40}
+[2023-12-13 14:37:02.893482] There are now 7 waypoints left in any precomputed route
+[2023-12-13 14:37:02.893523] Command to waypoint issued
+[2023-12-13 14:37:10.141807] Command to turn issued
+[2023-12-13 14:37:10.252579] Taking measurements @ 14:37:10:252542
+[2023-12-13 14:37:10.763170] Taking measurements @ 14:37:10:763133
+[2023-12-13 14:37:11.273881] Taking measurements @ 14:37:11:273783
+[2023-12-13 14:37:11.784863] Taking measurements @ 14:37:11:784824
+[2023-12-13 14:37:12.295425] Taking measurements @ 14:37:12:295390
+[2023-12-13 14:37:12.806627] Taking measurements @ 14:37:12:806592
+[2023-12-13 14:37:13.318000] Taking measurements @ 14:37:13:317963
+[2023-12-13 14:37:13.828672] Taking measurements @ 14:37:13:828637
+[2023-12-13 14:37:14.339776] Taking measurements @ 14:37:14:339742
+[2023-12-13 14:37:14.850847] Taking measurements @ 14:37:14:850771
+[2023-12-13 14:37:15.361769] Taking measurements @ 14:37:15:361736
+[2023-12-13 14:37:15.872734] Taking measurements @ 14:37:15:872698
+[2023-12-13 14:37:16.394694] Filtered data (avg): Pwr:18.037622451782227,P_Var:1.69381844997406, Qual:72.07205200195312, Q_Var:1.6321576833724976, {"lat": 35.72868875597826, "lon": -78.69881217934783, "alt": 39.954684782608695}, heading:314.70652173913044
+[2023-12-13 14:37:16.963173] GP optimizer epsilon: 9.5367431640625e-07
+[2023-12-13 14:37:16.963214] GP marginal likelihood: -75.16637892844994
+[2023-12-13 14:37:16.963223] ===GP refined prediction: {"lat": 35.729028084529965, "lon": -78.69900313439989, "alt": 0}===
+[2023-12-13 14:37:16.963230] Distance from vehicle to prediction: 57.762817897324005
+[2023-12-13 14:37:16.972760] Saved GP data to gp.pickle
+[2023-12-13 14:37:16.972785] Number of (Q_var) valid measurements: 20
+[2023-12-13 14:37:17.146018] 33 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:37:17.148329] Saved DM data to m_data.pickle
+[2023-12-13 14:37:17.159005] Moving to next waypoint: {"lat": 35.72876632528422, "lon": -78.69864034884013, "alt": 40}
+[2023-12-13 14:37:17.159021] There are now 6 waypoints left in any precomputed route
+[2023-12-13 14:37:17.159046] Command to waypoint issued
+[2023-12-13 14:37:24.415698] Command to turn issued
+[2023-12-13 14:37:24.526782] Taking measurements @ 14:37:24:526748
+[2023-12-13 14:37:25.037601] Taking measurements @ 14:37:25:037563
+[2023-12-13 14:37:25.548290] Taking measurements @ 14:37:25:548258
+[2023-12-13 14:37:26.059433] Taking measurements @ 14:37:26:059360
+[2023-12-13 14:37:26.571400] Taking measurements @ 14:37:26:571353
+[2023-12-13 14:37:27.081757] Taking measurements @ 14:37:27:081683
+[2023-12-13 14:37:27.592365] Taking measurements @ 14:37:27:592288
+[2023-12-13 14:37:28.102802] Taking measurements @ 14:37:28:102765
+[2023-12-13 14:37:28.613899] Taking measurements @ 14:37:28:613849
+[2023-12-13 14:37:29.124876] Taking measurements @ 14:37:29:124808
+[2023-12-13 14:37:29.636344] Taking measurements @ 14:37:29:636255
+[2023-12-13 14:37:30.147257] Taking measurements @ 14:37:30:147184
+[2023-12-13 14:37:30.669112] Filtered data (avg): Pwr:21.7814998626709,P_Var:0.460710734128952, Qual:72.08515930175781, Q_Var:0.2312338799238205, {"lat": 35.72876770217391, "lon": -78.69863972826087, "alt": 39.94214673913043}, heading:314.75
+[2023-12-13 14:37:31.267060] GP optimizer epsilon: 4.76837158203125e-07
+[2023-12-13 14:37:31.267135] GP marginal likelihood: -78.73163586884218
+[2023-12-13 14:37:31.267213] ===GP refined prediction: {"lat": 35.72900586230774, "lon": -78.69893983709021, "alt": 0}===
+[2023-12-13 14:37:31.267274] Distance from vehicle to prediction: 55.17469701099841
+[2023-12-13 14:37:31.272531] Saved GP data to gp.pickle
+[2023-12-13 14:37:31.272582] Number of (Q_var) valid measurements: 21
+[2023-12-13 14:37:31.443189] 34 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:37:31.445488] Saved DM data to m_data.pickle
+[2023-12-13 14:37:31.456066] Moving to next waypoint: {"lat": 35.72888582117897, "lon": -78.69851683248854, "alt": 40}
+[2023-12-13 14:37:31.456083] There are now 5 waypoints left in any precomputed route
+[2023-12-13 14:37:31.456090] Command to waypoint issued
+[2023-12-13 14:37:38.637568] Command to turn issued
+[2023-12-13 14:37:38.749661] Taking measurements @ 14:37:38:749590
+[2023-12-13 14:37:39.260081] Taking measurements @ 14:37:39:260024
+[2023-12-13 14:37:39.770578] Taking measurements @ 14:37:39:770504
+[2023-12-13 14:37:40.282517] Taking measurements @ 14:37:40:282407
+[2023-12-13 14:37:40.792828] Taking measurements @ 14:37:40:792751
+[2023-12-13 14:37:41.303843] Taking measurements @ 14:37:41:303766
+[2023-12-13 14:37:41.815082] Taking measurements @ 14:37:41:815044
+[2023-12-13 14:37:42.326058] Taking measurements @ 14:37:42:326001
+[2023-12-13 14:37:42.837256] Taking measurements @ 14:37:42:837218
+[2023-12-13 14:37:43.348170] Taking measurements @ 14:37:43:348094
+[2023-12-13 14:37:43.858881] Taking measurements @ 14:37:43:858795
+[2023-12-13 14:37:44.371213] Taking measurements @ 14:37:44:371175
+[2023-12-13 14:37:44.892597] Filtered data (avg): Pwr:14.292616844177246,P_Var:0.22598636150360107, Qual:72.03507995605469, Q_Var:0.26468122005462646, {"lat": 35.72888544193549, "lon": -78.6985178311828, "alt": 39.959032258064525}, heading:314.6666666666667
+[2023-12-13 14:37:45.560538] GP optimizer epsilon: 2.384185791015625e-07
+[2023-12-13 14:37:45.560606] GP marginal likelihood: -81.57758442922636
+[2023-12-13 14:37:45.560684] ===GP refined prediction: {"lat": 35.72900586230774, "lon": -78.69893983709021, "alt": 0}===
+[2023-12-13 14:37:45.560748] Distance from vehicle to prediction: 56.937770065853485
+[2023-12-13 14:37:45.566097] Saved GP data to gp.pickle
+[2023-12-13 14:37:45.566152] Number of (Q_var) valid measurements: 22
+[2023-12-13 14:37:45.677370] 35 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:37:45.680864] Saved DM data to m_data.pickle
+[2023-12-13 14:37:45.691408] Moving to next waypoint: {"lat": 35.72903240459397, "lon": -78.69845111081058, "alt": 40}
+[2023-12-13 14:37:45.691457] There are now 4 waypoints left in any precomputed route
+[2023-12-13 14:37:45.691532] Command to waypoint issued
+[2023-12-13 14:37:52.880552] Command to turn issued
+[2023-12-13 14:37:52.991151] Taking measurements @ 14:37:52:991115
+[2023-12-13 14:37:53.502515] Taking measurements @ 14:37:53:502435
+[2023-12-13 14:37:54.013675] Taking measurements @ 14:37:54:013602
+[2023-12-13 14:37:54.524812] Taking measurements @ 14:37:54:524738
+[2023-12-13 14:37:55.036130] Taking measurements @ 14:37:55:036056
+[2023-12-13 14:37:55.547290] Taking measurements @ 14:37:55:547252
+[2023-12-13 14:37:56.059274] Taking measurements @ 14:37:56:059237
+[2023-12-13 14:37:56.570088] Taking measurements @ 14:37:56:570051
+[2023-12-13 14:37:57.082278] Taking measurements @ 14:37:57:082209
+[2023-12-13 14:37:57.592989] Taking measurements @ 14:37:57:592916
+[2023-12-13 14:37:58.104395] Taking measurements @ 14:37:58:104321
+[2023-12-13 14:37:58.615231] Taking measurements @ 14:37:58:615162
+[2023-12-13 14:37:59.136961] Filtered data (avg): Pwr:18.54105567932129,P_Var:0.05218891426920891, Qual:71.98843383789062, Q_Var:0.1282721608877182, {"lat": 35.72902896885246, "lon": -78.69845312076502, "alt": 39.925387978142076}, heading:314.26229508196724
+[2023-12-13 14:37:59.743689] GP optimizer epsilon: 1.1920928955078125e-07
+[2023-12-13 14:37:59.743800] GP marginal likelihood: -84.69905126082506
+[2023-12-13 14:37:59.743997] ===GP refined prediction: {"lat": 35.72903594756668, "lon": -78.69889876200276, "alt": 0}===
+[2023-12-13 14:37:59.744151] Distance from vehicle to prediction: 56.788622226212965
+[2023-12-13 14:37:59.761393] Saved GP data to gp.pickle
+[2023-12-13 14:37:59.761514] Number of (Q_var) valid measurements: 23
+[2023-12-13 14:37:59.964189] 36 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:37:59.966880] Saved DM data to m_data.pickle
+[2023-12-13 14:37:59.977372] Moving to next waypoint: {"lat": 35.729188395406034, "lon": -78.69845111081058, "alt": 40}
+[2023-12-13 14:37:59.977392] There are now 3 waypoints left in any precomputed route
+[2023-12-13 14:37:59.977398] Command to waypoint issued
+[2023-12-13 14:38:07.361628] Command to turn issued
+[2023-12-13 14:38:07.472184] Taking measurements @ 14:38:07:472114
+[2023-12-13 14:38:07.982502] Taking measurements @ 14:38:07:982431
+[2023-12-13 14:38:08.493745] Taking measurements @ 14:38:08:493680
+[2023-12-13 14:38:09.004314] Taking measurements @ 14:38:09:004277
+[2023-12-13 14:38:09.515656] Taking measurements @ 14:38:09:515582
+[2023-12-13 14:38:10.026670] Taking measurements @ 14:38:10:026600
+[2023-12-13 14:38:10.537717] Taking measurements @ 14:38:10:537644
+[2023-12-13 14:38:11.048740] Taking measurements @ 14:38:11:048667
+[2023-12-13 14:38:11.559643] Taking measurements @ 14:38:11:559602
+[2023-12-13 14:38:12.070019] Taking measurements @ 14:38:12:069984
+[2023-12-13 14:38:12.580652] Taking measurements @ 14:38:12:580575
+[2023-12-13 14:38:13.092868] Taking measurements @ 14:38:13:092789
+[2023-12-13 14:38:13.614178] Filtered data (avg): Pwr:16.99201202392578,P_Var:0.059616729617118835, Qual:72.07714080810547, Q_Var:0.1238672211766243, {"lat": 35.72918527814207, "lon": -78.69845261967212, "alt": 39.883797814207654}, heading:314.41530054644807
+[2023-12-13 14:38:14.306918] GP optimizer epsilon: 5.960464477539063e-08
+[2023-12-13 14:38:14.306994] GP marginal likelihood: -87.6107025955686
+[2023-12-13 14:38:14.307073] ===GP refined prediction: {"lat": 35.72903594756668, "lon": -78.69889876200276, "alt": 0}===
+[2023-12-13 14:38:14.307135] Distance from vehicle to prediction: 59.23727908333726
+[2023-12-13 14:38:14.313060] Saved GP data to gp.pickle
+[2023-12-13 14:38:14.313118] Number of (Q_var) valid measurements: 24
+[2023-12-13 14:38:14.470152] 37 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:38:14.474580] Saved DM data to m_data.pickle
+[2023-12-13 14:38:14.485338] Moving to next waypoint: {"lat": 35.72931030026633, "lon": -78.69852097998155, "alt": 40}
+[2023-12-13 14:38:14.485381] There are now 2 waypoints left in any precomputed route
+[2023-12-13 14:38:14.485387] Command to waypoint issued
+[2023-12-13 14:38:21.164064] Command to turn issued
+[2023-12-13 14:38:21.275163] Taking measurements @ 14:38:21:275129
+[2023-12-13 14:38:21.785763] Taking measurements @ 14:38:21:785725
+[2023-12-13 14:38:22.296108] Taking measurements @ 14:38:22:296070
+[2023-12-13 14:38:22.806429] Taking measurements @ 14:38:22:806382
+[2023-12-13 14:38:23.316934] Taking measurements @ 14:38:23:316897
+[2023-12-13 14:38:23.828090] Taking measurements @ 14:38:23:828055
+[2023-12-13 14:38:24.338483] Taking measurements @ 14:38:24:338444
+[2023-12-13 14:38:24.849459] Taking measurements @ 14:38:24:849422
+[2023-12-13 14:38:25.360628] Taking measurements @ 14:38:25:360589
+[2023-12-13 14:38:25.871351] Taking measurements @ 14:38:25:871295
+[2023-12-13 14:38:26.382487] Taking measurements @ 14:38:26:382444
+[2023-12-13 14:38:26.893679] Taking measurements @ 14:38:26:893635
+[2023-12-13 14:38:27.415913] Filtered data (avg): Pwr:18.62162971496582,P_Var:0.18768613040447235, Qual:72.04129791259766, Q_Var:0.17193473875522614, {"lat": 35.729306619999996, "lon": -78.69852184540541, "alt": 39.914383783783784}, heading:314.7189189189189
+[2023-12-13 14:38:28.027544] GP optimizer epsilon: 2.9802322387695312e-08
+[2023-12-13 14:38:28.027613] GP marginal likelihood: -90.44885179379934
+[2023-12-13 14:38:28.027690] ===GP refined prediction: {"lat": 35.72903594756668, "lon": -78.69889876200276, "alt": 0}===
+[2023-12-13 14:38:28.027752] Distance from vehicle to prediction: 60.655793201875014
+[2023-12-13 14:38:28.034847] Saved GP data to gp.pickle
+[2023-12-13 14:38:28.034903] Number of (Q_var) valid measurements: 25
+[2023-12-13 14:38:28.250229] 38 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:38:28.252589] Saved DM data to m_data.pickle
+[2023-12-13 14:38:28.263067] Moving to next waypoint: {"lat": 35.72931030026633, "lon": -78.69865661707371, "alt": 40}
+[2023-12-13 14:38:28.263085] There are now 1 waypoints left in any precomputed route
+[2023-12-13 14:38:28.263091] Command to waypoint issued
+[2023-12-13 14:38:34.115847] Command to turn issued
+[2023-12-13 14:38:34.228177] Taking measurements @ 14:38:34:228032
+[2023-12-13 14:38:34.738635] Taking measurements @ 14:38:34:738561
+[2023-12-13 14:38:35.249589] Taking measurements @ 14:38:35:249514
+[2023-12-13 14:38:35.760474] Taking measurements @ 14:38:35:760398
+[2023-12-13 14:38:36.270867] Taking measurements @ 14:38:36:270830
+[2023-12-13 14:38:36.781299] Taking measurements @ 14:38:36:781219
+[2023-12-13 14:38:37.292523] Taking measurements @ 14:38:37:292448
+[2023-12-13 14:38:37.803643] Taking measurements @ 14:38:37:803607
+[2023-12-13 14:38:38.314243] Taking measurements @ 14:38:38:314169
+[2023-12-13 14:38:38.825494] Taking measurements @ 14:38:38:825459
+[2023-12-13 14:38:39.337051] Taking measurements @ 14:38:39:336986
+[2023-12-13 14:38:39.847490] Taking measurements @ 14:38:39:847456
+[2023-12-13 14:38:40.369798] Filtered data (avg): Pwr:22.122365951538086,P_Var:0.22312508523464203, Qual:72.13911437988281, Q_Var:0.12054532766342163, {"lat": 35.729307832608704, "lon": -78.69865375706523, "alt": 39.99002717391305}, heading:314.8478260869565
+[2023-12-13 14:38:41.063617] GP optimizer epsilon: 1.4901161193847656e-08
+[2023-12-13 14:38:41.063722] GP marginal likelihood: -93.18399446379914
+[2023-12-13 14:38:41.063995] ===GP refined prediction: {"lat": 35.729099366158955, "lon": -78.69893209533609, "alt": 0}===
+[2023-12-13 14:38:41.064161] Distance from vehicle to prediction: 52.583223175520914
+[2023-12-13 14:38:41.084724] Saved GP data to gp.pickle
+[2023-12-13 14:38:41.084813] Number of (Q_var) valid measurements: 26
+[2023-12-13 14:38:41.263915] 39 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:38:41.266401] Saved DM data to m_data.pickle
+[2023-12-13 14:38:41.276936] Moving to next waypoint: {"lat": 35.72931030026633, "lon": -78.69879225416588, "alt": 40}
+[2023-12-13 14:38:41.276955] There are now 0 waypoints left in any precomputed route
+[2023-12-13 14:38:41.277006] Command to waypoint issued
+[2023-12-13 14:38:47.133459] Command to turn issued
+[2023-12-13 14:38:47.244011] Taking measurements @ 14:38:47:243906
+[2023-12-13 14:38:47.755371] Taking measurements @ 14:38:47:755289
+[2023-12-13 14:38:48.266530] Taking measurements @ 14:38:48:266446
+[2023-12-13 14:38:48.777099] Taking measurements @ 14:38:48:777063
+[2023-12-13 14:38:49.288303] Taking measurements @ 14:38:49:288262
+[2023-12-13 14:38:49.799136] Taking measurements @ 14:38:49:799100
+[2023-12-13 14:38:50.310002] Taking measurements @ 14:38:50:309961
+[2023-12-13 14:38:50.821774] Taking measurements @ 14:38:50:821741
+[2023-12-13 14:38:51.332761] Taking measurements @ 14:38:51:332726
+[2023-12-13 14:38:51.843841] Taking measurements @ 14:38:51:843799
+[2023-12-13 14:38:52.275346] time now is:  2023-12-13 14:38:52.275311
+[2023-12-13 14:38:52.275371] =====HERE IS THE 10 MIN REPORTED POSITION=====
+[2023-12-13 14:38:52.275401] Refined reported position: {"lat": 35.729099366158955, "lon": -78.69893209533609, "alt": 0}
+[2023-12-13 14:38:52.354703] Taking measurements @ 14:38:52:354653
+[2023-12-13 14:38:52.865303] Taking measurements @ 14:38:52:865221
+[2023-12-13 14:38:53.387061] Filtered data (avg): Pwr:20.194507598876953,P_Var:2.242546796798706, Qual:72.08112335205078, Q_Var:0.39793238043785095, {"lat": 35.729307646994535, "lon": -78.6987878989071, "alt": 40.02474863387978}, heading:314.78142076502735
+[2023-12-13 14:38:54.028066] GP optimizer epsilon: 7.450580596923828e-09
+[2023-12-13 14:38:54.028141] GP marginal likelihood: -95.87881276184322
+[2023-12-13 14:38:54.028222] ===GP refined prediction: {"lat": 35.72904705867779, "lon": -78.69889876200276, "alt": 0}===
+[2023-12-13 14:38:54.028286] Distance from vehicle to prediction: 50.467072775225034
+[2023-12-13 14:38:54.030020] Desired waypoint from GP: {"lat": 35.729062527987146, "lon": -78.69892789125805, "alt": 40}
+[2023-12-13 14:38:54.030119] Next waypoint from GP (limited and nudged): {"lat": 35.72906384301124, "lon": -78.69892738041146, "alt": 40}
+[2023-12-13 14:38:54.038433] Saved GP data to gp.pickle
+[2023-12-13 14:38:54.038489] Number of (Q_var) valid measurements: 27
+[2023-12-13 14:38:54.168562] 40 MEASURE Data points written to m_data.pickle
+[2023-12-13 14:38:54.172534] Saved DM data to m_data.pickle
+[2023-12-13 14:38:54.390717] 17968 Data points written to data.pickle
+[2023-12-13 14:38:54.396123] Ending rover search script
+[2023-12-13 14:38:54.396149] Returning to launch @ {"lat": 35.7273703, "lon": -78.6962204, "alt": 40.027}
+[2023-12-13 14:38:54.396155] 
+[2023-12-13 14:38:54.396160] -----------------STATS-----------------
+[2023-12-13 14:38:54.396167] Total number of dropped measurements: 13
+[2023-12-13 14:38:54.396175] Total number of valid measurements: 27
+[2023-12-13 14:38:54.396182] Total number of nudges: 1
+[2023-12-13 14:38:54.396189] Aux path triggered: True
+[2023-12-13 14:38:54.396196] GP marginal likelihood: -95.87881276184322
+[2023-12-13 14:38:54.396397] GP marginal likelihood gradient: [3.27577393e-07 6.34215721e-07 3.06952448e-06]
+[2023-12-13 14:38:54.396418] GP optimizer epsilon: 7.450580596923828e-09
+[2023-12-13 14:38:54.396427] GP optimizer method: ucb
+[2023-12-13 14:38:54.396449] GP optimizer alpha: 2
+[2023-12-13 14:38:54.396554] GP kernel init: 1**2 * RBF(length_scale=0.00276) + WhiteKernel(noise_level=0.33)
+[2023-12-13 14:38:54.396592] GP kernel final: 30.6**2 * RBF(length_scale=0.00108) + WhiteKernel(noise_level=24.4)
+[2023-12-13 14:38:54.396620] Highest power measurement: 25.002655029296875 @ {"lat": 35.72902797189189, "lon": -78.6990444108108, "alt": 39.86956216216217}
+[2023-12-13 14:38:54.396628] -----------------STATS-----------------
+[2023-12-13 14:38:54.396635] 
+[2023-12-13 14:40:02.822538] Landing...
+[2023-12-13 14:40:48.085657] Done!
