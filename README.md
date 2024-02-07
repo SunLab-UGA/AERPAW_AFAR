@@ -22,7 +22,5 @@ https://aerpaw.org/aerpaw-afar-challenge/
 
 
 ### Program Overview
-<!-- ![state_diagram_image](images/aerpaw_state_diagram2.png) -->
-<div style="background-color: white;">
-<img src="images/aerpaw_state_diagram2.png" width="600">
-</div>
+<!-- ![state_diagram_image](images/aerpaw_state_diagram2_whiteBG.png) -->
+<img src="images/aerpaw_state_diagram2_whiteBG.png" width="600">
